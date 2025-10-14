@@ -3,16 +3,8 @@ import FeaturedProject from "../components/FeaturedProject.tsx";
 import SendMail from "../components/SendMail.tsx";
 import {
   SiReact,
-  SiNextdotjs,
-  SiTypescript,
-  SiJavascript,
-  SiTailwindcss,
   SiVite,
-  SiNodedotjs,
-  SiExpress,
-  SiPython,
   SiPostgresql,
-  SiMysql,
   SiMongodb,
 } from "react-icons/si";
 import {
@@ -202,3 +194,4 @@ const HomePage = () => (
 );
 
 export default HomePage;
+
