@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 const githubHref = "https://github.com/sarb";
 const linkedinHref = "https://www.linkedin.com/in/sarbzcode";
-const email = "/contact";
 const iconClasses = "h-5 w-5";
 
 
