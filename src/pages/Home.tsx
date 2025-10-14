@@ -2,7 +2,6 @@
 import FeaturedProject from "../components/FeaturedProject.tsx";
 import SendMail from "../components/SendMail.tsx";
 import {
-  SiReact,
   SiVite,
   SiPostgresql,
   SiMongodb,
@@ -12,7 +11,6 @@ import {
   FaJava,
   FaReact,
   FaNodeJs,
-  FaHtml5,
   FaJs
 } from "react-icons/fa";
 import { 
@@ -194,4 +192,5 @@ const HomePage = () => (
 );
 
 export default HomePage;
+
 
