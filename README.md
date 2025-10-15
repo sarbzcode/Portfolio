@@ -14,7 +14,7 @@ It is designed to highlight my **academic path**, **software projects**, and **c
 
 ## 🛠️ Tech Stack
 
-**Frontend:**
+### 🎨 Frontend
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
@@ -29,14 +29,6 @@ It is designed to highlight my **academic path**, **software projects**, and **c
 ![Vercel](https://img.shields.io/badge/Vercel-black?style=for-the-badge&logo=vercel&logoColor=white)
 ![Render](https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=black)
 
-
-**Backend:**
-- Node.js + Express (Contact Form API)
-- Nodemailer (Email Delivery)
-- CORS & dotenv Configuration
-
-**Deployment:**
-- Frontend → Vercel
 
 **Version Control:** Git + GitHub
 
