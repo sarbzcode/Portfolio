@@ -25,8 +25,7 @@ It’s built with a modern tech stack and optimized for **performance, accessibi
 - 📧 [Nodemailer](https://nodemailer.com/about/) — Email handling via form submissions  
 
 ### **Deployment**
-- ▲ [Vercel](https://vercel.com/) — Frontend hosting  
-- ☁️ [Render / Railway / Vercel Functions] — Optional backend deployment  
+- ▲ [Vercel](https://vercel.com/) — Frontend hosting
 
 ---
 
