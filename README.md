@@ -15,10 +15,20 @@ It is designed to highlight my **academic path**, **software projects**, and **c
 ## 🛠️ Tech Stack
 
 **Frontend:**
-- React (Vite + TypeScript)
-- Tailwind CSS (Responsive Styling)
-- Framer Motion (Animations)
-- React Router DOM (Routing)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-black?style=for-the-badge&logo=framer&logoColor=blue)
+
+### ⚙️ Backend
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)
+![Nodemailer](https://img.shields.io/badge/Nodemailer-2C8EBB?style=for-the-badge&logo=gmail&logoColor=white)
+
+### ☁️ Deployment
+![Vercel](https://img.shields.io/badge/Vercel-black?style=for-the-badge&logo=vercel&logoColor=white)
+![Render](https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=black)
+
 
 **Backend:**
 - Node.js + Express (Contact Form API)
