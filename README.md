@@ -1,123 +1,126 @@
-# 🌐 Personal Portfolio — [www.sarbzcode.com](https://www.sarbzcode.com)
+# 🌐 Portfolio — Sarbjot Singh (sarbzcode)
 
-This is my **personal developer portfolio**, built to showcase my journey as a **Computer Science student specializing in Data Analytics**. It highlights my **projects, skills, experience, and professional background** through an elegant and responsive web interface.
-
----
-
-## 🧭 Overview
-
-The portfolio is designed to represent my professional identity online — including my GitHub work, projects, and academic initiatives.  
-It’s built with a modern tech stack and optimized for **performance, accessibility, and design consistency**.
+Welcome to the source code of my personal portfolio website — [www.sarbzcode.com](https://www.sarbzcode.com)  
+This website represents my work as a **Computer Science student specializing in Data Analytics** at Acadia University and showcases my **projects, skills, and professional journey**.
 
 ---
 
-## ⚙️ Tech Stack
+## 🚀 Overview
 
-### **Frontend**
-- ⚛️ [React](https://reactjs.org/) — Component-based UI  
-- ⚡ [TypeScript](https://www.typescriptlang.org/) — Type safety & scalability  
-- 💨 [Tailwind CSS](https://tailwindcss.com/) — Utility-first styling  
-- 🎞️ [Framer Motion](https://www.framer.com/motion/) — Animations  
-- 🔤 [React Icons](https://react-icons.github.io/react-icons/) — Icon library  
+This portfolio serves as both a personal brand and a technical demonstration of my development skills.  
+It is designed to highlight my **academic path**, **software projects**, and **career goals** — blending minimalistic UI design with modern web technologies.
 
-### **Backend**
-- 🧩 [Node.js](https://nodejs.org/en/) + [Express](https://expressjs.com/) — Contact form API  
-- 📧 [Nodemailer](https://nodemailer.com/about/) — Email handling via form submissions  
-
-### **Deployment**
-- ▲ [Vercel](https://vercel.com/) — Frontend hosting
+**Live Demo:** [www.sarbzcode.com](https://www.sarbzcode.com)  
+**GitHub Repo:** [github.com/sarbzcode/Portfolio](https://github.com/sarbzcode/Portfolio)
 
 ---
 
-## 💼 Features
+## 🛠️ Tech Stack
 
-✅ Fully responsive and dark-mode compatible  
-✅ Animated and interactive design  
-✅ Dynamic skill showcase and project timeline  
-✅ Contact form with working backend email service  
-✅ SEO optimized with meta tags and structured layout  
-✅ Hosted and accessible globally at **[www.sarbzcode.com](https://www.sarbzcode.com)**  
+**Frontend:**
+- React (Vite + TypeScript)
+- Tailwind CSS (Responsive Styling)
+- Framer Motion (Animations)
+- React Router DOM (Routing)
+
+**Backend:**
+- Node.js + Express (Contact Form API)
+- Nodemailer (Email Delivery)
+- CORS & dotenv Configuration
+
+**Deployment:**
+- Frontend → Vercel  
+- Backend (Contact Service) → Render / Vercel Functions  
+
+**Version Control:** Git + GitHub
 
 ---
 
-## 🧩 Folder Structure
+## 📂 Project Structure
 
 ```
 Portfolio/
 │
+├── public/               # Static assets (images, icons, profile)
 ├── src/
-│   ├── components/        # Reusable UI components (Navbar, Footer, etc.)
-│   ├── pages/             # Main sections (Home, About, Projects, Contact)
-│   ├── assets/            # Images, icons, and static files
-│   ├── styles/            # Tailwind config & custom CSS
-│   └── utils/             # Helper functions and constants
+│   ├── components/       # Reusable UI elements (Navbar, Footer, SendMail, etc.)
+│   ├── pages/            # Sections like Home, Projects, Contact
+│   ├── data/             # Timeline & skillset arrays
+│   ├── App.tsx           # Main routing file
+│   └── main.tsx          # Entry point
 │
-├── server/                # Express backend for contact form
-│   ├── index.ts           # Express app setup
-│   ├── routes/            # API routes for form submission
-│   └── utils/             # Nodemailer configuration
+├── server/               # Contact form backend (Express)
+│   ├── index.ts          # Handles API routes and nodemailer setup
 │
 ├── package.json
 ├── tsconfig.json
-├── tailwind.config.js
-├── README.md
-└── .env.example
+└── README.md
 ```
 
 ---
 
-## 🚀 Getting Started
+## 💡 Features
 
-### 1️⃣ Clone the Repository
+- **Interactive Hero Section** — Animated introduction with 3D visuals.
+- **Dynamic Timeline** — Highlights education, innovation projects, and professional growth.
+- **Projects Section** — Displays major works (ShiftSync, Axepress, Betterpedia, etc.).
+- **Responsive Design** — Mobile-friendly layout built with Tailwind.
+- **Contact Form Integration** — Sends messages directly via backend email service.
+- **Dark Mode Support** — Smooth visual transitions for accessibility.
+
+---
+
+## 🧠 Learning Outcomes
+
+Through building this site, I:
+- Strengthened my **frontend architecture** and **component modularity** skills.
+- Implemented **secure backend communication** for form submissions.
+- Designed a **developer-focused personal brand** aligned with modern UI practices.
+- Enhanced my deployment skills using **Vercel** and **Render**.
+
+---
+
+## 📸 Preview
+
+![Portfolio Preview](https://www.sarbzcode.com/preview.png)
+
+---
+
+## ⚙️ Setup & Run Locally
+
 ```bash
+# Clone the repository
 git clone https://github.com/sarbzcode/Portfolio.git
 cd Portfolio
-```
 
-### 2️⃣ Install Dependencies
-```bash
+# Install dependencies
 npm install
-```
 
-### 3️⃣ Configure Environment Variables
-Create a `.env` file in the root directory and add:
-```env
-EMAIL_USER=your_email@example.com
-EMAIL_PASS=your_email_password
-EMAIL_SERVICE=gmail
-CLIENT_ORIGIN=https://www.sarbzcode.com
-```
-
-### 4️⃣ Run Development Server
-```bash
+# Start the development server
 npm run dev
 ```
 
-### 5️⃣ Run Backend Server
+For the backend:
 ```bash
 cd server
 npm install
-npm run start
+npm run dev
 ```
 
----
-
-## 📩 Contact Form Setup
-
-The contact form uses **Nodemailer** to send emails.  
-Ensure your `.env` file includes valid credentials and the backend server runs simultaneously with the frontend.
+Then open `http://localhost:5173` in your browser.
 
 ---
 
-## 🧠 Inspiration
+## 🧾 License
 
-This project reflects my **academic and professional journey** — from studying data analytics to building real-world web applications.  
-It’s continuously evolving as I grow as a **developer, analyst, and innovator**.
+This project is open-source under the **MIT License**.  
+Feel free to explore, fork, or adapt for personal use — credits are appreciated.
 
 ---
 
-## 🤝 Connect with Me
+## 👋 Connect With Me
 
-- 🌐 **Website:** [www.sarbzcode.com](https://www.sarbzcode.com)  
-- 💼 **LinkedIn:** [linkedin.com/in/sarbzcode](https://www.linkedin.com/in/sarbzcode)  
-- 💻 **GitHub:** [github.com/sarbzcode](https://github.com/sarbzcode)  
+- **Portfolio:** [www.sarbzcode.com](https://www.sarbzcode.com)
+- **LinkedIn:** [linkedin.com/in/sarbzcode](https://www.linkedin.com/in/sarbzcode)
+- **GitHub:** [github.com/sarbzcode](https://github.com/sarbzcode)
+- **Email:** sarbzcode@gmail.com
