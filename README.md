@@ -10,9 +10,6 @@ This website represents my work as a **Computer Science student specializing in 
 This portfolio serves as both a personal brand and a technical demonstration of my development skills.  
 It is designed to highlight my **academic path**, **software projects**, and **career goals** — blending minimalistic UI design with modern web technologies.
 
-**Live Demo:** [www.sarbzcode.com](https://www.sarbzcode.com)  
-**GitHub Repo:** [github.com/sarbzcode/Portfolio](https://github.com/sarbzcode/Portfolio)
-
 ---
 
 ## 🛠️ Tech Stack
@@ -29,8 +26,7 @@ It is designed to highlight my **academic path**, **software projects**, and **c
 - CORS & dotenv Configuration
 
 **Deployment:**
-- Frontend → Vercel  
-- Backend (Contact Service) → Render / Vercel Functions  
+- Frontend → Vercel
 
 **Version Control:** Git + GitHub
 
@@ -80,12 +76,6 @@ Through building this site, I:
 
 ---
 
-## 📸 Preview
-
-![Portfolio Preview](https://www.sarbzcode.com/preview.png)
-
----
-
 ## ⚙️ Setup & Run Locally
 
 ```bash
@@ -111,16 +101,8 @@ Then open `http://localhost:5173` in your browser.
 
 ---
 
-## 🧾 License
-
-This project is open-source under the **MIT License**.  
-Feel free to explore, fork, or adapt for personal use — credits are appreciated.
-
----
-
 ## 👋 Connect With Me
 
 - **Portfolio:** [www.sarbzcode.com](https://www.sarbzcode.com)
 - **LinkedIn:** [linkedin.com/in/sarbzcode](https://www.linkedin.com/in/sarbzcode)
 - **GitHub:** [github.com/sarbzcode](https://github.com/sarbzcode)
-- **Email:** sarbzcode@gmail.com
