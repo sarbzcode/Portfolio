@@ -109,24 +109,10 @@ Ensure your `.env` file includes valid credentials and the backend server runs s
 
 ---
 
-## 📸 Preview
-
-![Portfolio Screenshot](https://www.sarbzcode.com/preview.png)
-
-> The design is modern, minimal, and built with a focus on **clarity, creativity, and user engagement**.
-
----
-
 ## 🧠 Inspiration
 
 This project reflects my **academic and professional journey** — from studying data analytics to building real-world web applications.  
 It’s continuously evolving as I grow as a **developer, analyst, and innovator**.
-
----
-
-## 🧾 License
-
-This project is open-source under the [MIT License](LICENSE).
 
 ---
 
