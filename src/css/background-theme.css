@@ -1,5 +1,5 @@
 ﻿:global(.light) {
-  --codex-background: #000000;
+  --app-background: #000000;
 }
 :global(.light) body {
   @apply bg-white text-neutral-900;

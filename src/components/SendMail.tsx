@@ -51,7 +51,7 @@ export default function SendMail() {
       let payload: { ok?: boolean; error?: string } = {};
       try {
         payload = await response.json();
-      } catch (parseError) {
+      } catch {
         payload = {};
       }
 

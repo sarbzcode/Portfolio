@@ -1,1 +1,1 @@
-﻿export { default } from "./components/CodexBackground";
+export { default } from "./components/GlyphBackground";

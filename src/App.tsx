@@ -5,13 +5,13 @@ import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import CodexBackground from "./components/CodexBackground.tsx";
+import GlyphBackground from "./components/GlyphBackground.tsx";
 import Certifications from "./pages/Certifications.tsx";
 
 function App() {
   return (
     <>
-      <CodexBackground />
+      <GlyphBackground />
       <div className="relative z-10 min-h-screen flex flex-col">
         <Navbar />
         <main className="relative z-10 flex-1 pt-6 sm:pt-8">

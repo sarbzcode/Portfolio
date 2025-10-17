@@ -6,7 +6,7 @@ import { MoonIcon, SunIcon } from "@heroicons/react/24/solid";
 const DARK_THEME_BACKGROUND = "#050608";
 const LIGHT_THEME_BACKGROUND = "#f4f6fb";
 const THEME_STORAGE_KEY = "theme";
-const CODex_EVENT = "codex-background-change";
+const BACKGROUND_CHANGE_EVENT = "app-background-change";
 
 function getInitialTheme(): boolean {
   if (typeof window === "undefined") return true;
@@ -40,11 +40,11 @@ export default function Navbar() {
       localStorage.setItem(THEME_STORAGE_KEY, "light");
     }
 
-    root.style.setProperty("--codex-background", baseColor);
+    root.style.setProperty("--app-background", baseColor);
 
     if (typeof window !== "undefined") {
       window.dispatchEvent(
-        new CustomEvent(CODex_EVENT, {
+        new CustomEvent(BACKGROUND_CHANGE_EVENT, {
           detail: {
             theme: isDark ? "dark" : "light",
             baseColor,

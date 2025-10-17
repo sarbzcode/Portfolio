@@ -31,7 +31,7 @@ const projects = [
     summary:
       "Currently developing a workforce scheduling and payroll platform to simplify team coordination and automate pay reporting.",
     problem:
-      "Small-team managers still depend on manual spreadsheets and chat threads to coordinate coverage, causing confusion and delayed payroll corrections — a problem this project aims to solve.",
+      "Small-team managers still depend on manual spreadsheets and chat threads to coordinate coverage, causing confusion and delayed payroll corrections - a problem this project aims to solve.",
     solution:
       "Designing and implementing an end-to-end MERN system with drag-and-drop scheduling, shift conflict detection, and automated payroll calculations. Current milestones focus on refining role-based dashboards and integrating data visualizations.",
     techStack: ["React", "Node.js", "Express", "MongoDB", "Chart.js"],
@@ -56,7 +56,7 @@ declare global {
 }
 
 export default function Projects() {
-  const [featured, ...rest] = projects;
+  const rest = projects.slice(1);
 
   return (
     <div className="relative z-10 flex flex-col bg-transparent text-neutral-900 dark:text-neutral-100">
