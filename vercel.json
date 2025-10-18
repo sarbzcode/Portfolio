@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "buildCommand": "node ./node_modules/vite/bin/vite.js build",
+  "buildCommand": "node scripts/run-vite-build.cjs",
   "outputDirectory": "dist",
   "framework": null,
 

@@ -7,7 +7,6 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import GlyphBackground from "./components/GlyphBackground.tsx";
 import Certifications from "./pages/Certifications.tsx";
-import { Analytics } from '@vercel/analytics/next';
 
 function App() {
   return (
@@ -23,7 +22,6 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/certifications" element={<Certifications />} />
           </Routes>
-          <Analytics />
         </main>
         <Footer />
       </div>
