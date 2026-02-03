@@ -3,12 +3,6 @@
   "buildCommand": "node scripts/run-vite-build.cjs",
   "outputDirectory": "dist",
   "framework": null,
-
-  "functions": {
-    "api/**/*.ts": {
-      "runtime": "nodejs18.x"
-    }
-  },
   "routes": [
     { "src": "/api/(.*)", "dest": "/api/$1" },
     { "handle": "filesystem" },

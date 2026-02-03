@@ -1,5 +1,4 @@
-import { FaReact, FaNodeJs, FaGithub } from "react-icons/fa";
-import { SiPostgresql, SiVite, SiExpress, SiVercel } from "react-icons/si";
+import { FaGithub } from "react-icons/fa";
 
 const role = "./role.png";
 
@@ -12,58 +11,79 @@ export default function FeaturedProject() {
             Featured Project
           </h2>
           <span className="rounded-full border border-blue-400/40 bg-blue-500/10 px-4 py-1 text-xs uppercase tracking-widest text-blue-600 dark:text-blue-200">
-            Highlight
+            Hackathon 2nd Place
           </span>
         </div>
         <div className="grid gap-6 rounded-3xl border border-neutral-200/60 bg-white/85 p-8 text-neutral-800 shadow-xl shadow-blue-500/10 backdrop-blur dark:border-white/10 dark:bg-white/5 dark:text-neutral-200 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="space-y-4">
             <h3 className="text-xl font-semibold text-neutral-900 dark:text-white sm:text-2xl">
-              Axepress - Campus Event &amp; Noticeboard Platform
+              CV-GPT - Hackathon Resume Screening Platform
             </h3>
             <p className="text-base leading-relaxed text-neutral-700 dark:text-neutral-200/85">
-              Designed and developed an all-in-one campus platform that
-              centralizes event discovery, club notices, and community updates.
-              Axepress streamlines communication between students and campus
-              organizations through real-time feeds, smart search, and robust
-              moderation tools.
+              Built in a hackathon where it secured 2nd position, CV-GPT ranks
+              resumes against a job description using a Go matcher with
+              heuristic scoring and optional OpenAI semantic scoring. It
+              supports .txt/.md/.pdf/.docx/.rtf files, runs via CLI, Excel
+              macro workbook, or Wails desktop app, and exports ranked CSV
+              results with strengths, weaknesses, and explanations.
             </p>
             <ul className="flex flex-wrap gap-2 text-xs">
               {[
                 {
-                  icon: <FaReact style={{ color: "#61DAFB" }} />,
-                  label: "React.js",
-                },
-                {
-                  icon: <SiVite style={{ color: "#646CFF" }} />,
-                  label: "Vite",
+                  icon: (
+                    <span style={{ color: "#00ADD8", fontWeight: 700 }}>Go</span>
+                  ),
+                  label: "Go",
                 },
                 {
                   icon: (
-                    <span style={{ color: "#264de4", fontWeight: 600 }}>
-                      CSS
+                    <span style={{ color: "#2563eb", fontWeight: 700 }}>TF</span>
+                  ),
+                  label: "TF-IDF",
+                },
+                {
+                  icon: (
+                    <span style={{ color: "#2563eb", fontWeight: 700 }}>
+                      cos
                     </span>
                   ),
-                  label: "Modules",
+                  label: "Cosine",
                 },
                 {
-                  icon: <FaNodeJs style={{ color: "#68A063" }} />,
-                  label: "Node.js",
+                  icon: (
+                    <span style={{ color: "#16a34a", fontWeight: 700 }}>
+                      CLI
+                    </span>
+                  ),
+                  label: "CLI",
                 },
                 {
-                  icon: <SiExpress style={{ color: "#999999" }} />,
-                  label: "Express.js",
+                  icon: (
+                    <span style={{ color: "#166534", fontWeight: 700 }}>
+                      XLS
+                    </span>
+                  ),
+                  label: "Excel VBA",
                 },
                 {
-                  icon: <SiPostgresql style={{ color: "#336791" }} />,
-                  label: "PostgreSQL",
+                  icon: (
+                    <span style={{ color: "#4338ca", fontWeight: 700 }}>
+                      APP
+                    </span>
+                  ),
+                  label: "Wails",
                 },
                 {
                   icon: <FaGithub style={{ color: "#181717" }} />,
                   label: "GitHub",
                 },
                 {
-                  icon: <SiVercel style={{ color: "#000000" }} />,
-                  label: "Vercel",
+                  icon: (
+                    <span style={{ color: "#0f172a", fontWeight: 700 }}>
+                      AI
+                    </span>
+                  ),
+                  label: "OpenAI (opt)",
                 },
               ].map((tech, i) => (
                 <li
@@ -83,7 +103,7 @@ export default function FeaturedProject() {
 
             <div>
               <a
-                href="https://github.com/sarbzcode/axepress"
+                href="https://github.com/sarbzcode/CV-GPT"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 transition hover:text-blue-800 dark:text-blue-200 dark:hover:text-white"
@@ -95,10 +115,10 @@ export default function FeaturedProject() {
           </div>
           <div className="flex flex-col justify-between gap-6 rounded-3xl border border-blue-200/40 bg-blue-50/70 p-6 text-left text-neutral-700 shadow-inner shadow-blue-500/10 dark:border-blue-400/20 dark:bg-blue-500/5 dark:text-blue-100/90">
             <p className="text-sm leading-relaxed">
-              "Axepress reimagines how students stay informed. We built
-              real-time event feeds, cross-platform notifications, and intuitive
-              moderation dashboards that help organizers engage the community
-              effortlessly."
+              "Built during a hackathon and awarded 2nd position, CV-GPT
+              focuses on practical hiring workflows: ingest multi-format
+              resumes, redact sensitive details before scoring, and output
+              transparent ranked results with clear explanations."
             </p>
             <div className="flex items-center gap-3 text-xs uppercase tracking-wide text-blue-600 dark:text-blue-200/90">
               <img
@@ -107,10 +127,10 @@ export default function FeaturedProject() {
               />
               <div>
                 <p className="font-semibold text-neutral-800 dark:text-blue-100">
-                  Role
+                  Achievement
                 </p>
                 <p className="text-neutral-600 dark:text-blue-100/70">
-                  Full-Stack Developer
+                  Hackathon 2nd Position
                 </p>
               </div>
             </div>

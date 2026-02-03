@@ -66,7 +66,7 @@ const projects: Project[] = [
     problem:
       "Resume screening can be inconsistent and time-intensive when teams compare many formats manually against role requirements.",
     solution:
-      "Built a Go pipeline that accepts .txt/.md/.pdf/.docx/.rtf files and outputs ranked CSV results with strengths, weaknesses, and scoring explanations. It runs in CLI, Excel macro workbook, and Wails desktop modes, with optional OpenAI embeddings + semantic scoring for richer ranking context.",
+      "Built a Go pipeline that accepts .txt/.md/.pdf/.docx/.rtf files and outputs ranked results (results.csv) plus a run log with strengths, weaknesses, and scoring explanations. It runs in CLI, Excel macro workbook, and Wails desktop modes, with optional OpenAI embeddings + semantic scoring for richer ranking context.",
     techStack: [
       "Go",
       "TF-IDF",
@@ -81,6 +81,7 @@ const projects: Project[] = [
       github: "https://github.com/sarbzcode/CV-GPT",
     },
     impact: [
+      "Built during a hackathon and awarded 2nd position",
       "CLI + Excel + desktop (Wails) run modes support different user workflows",
       "PII and demographic redaction runs before scoring",
       "Optional OpenAI mode adds semantic ranking and richer explanations",
@@ -128,7 +129,8 @@ declare global {
 }
 
 export default function Projects() {
-  const rest = projects.slice(1);
+  const featuredProjectTitle = "CV-GPT";
+  const rest = projects.filter((project) => project.title !== featuredProjectTitle);
 
   return (
     <div className="relative z-10 flex flex-col bg-transparent text-neutral-900 dark:text-neutral-100">
