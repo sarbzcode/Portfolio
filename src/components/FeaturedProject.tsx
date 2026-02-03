@@ -1,7 +1,7 @@
 import { FaGithub } from "react-icons/fa";
 
 const role = "./role.png";
-const cvGptPreview = "/projects/cv-gpt-preview.svg";
+const cvGptPreview = "/projects/cv-gpt.jpeg";
 
 export default function FeaturedProject() {
   return (

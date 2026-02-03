@@ -11,7 +11,7 @@ type Project = {
     github: string;
     live?: string;
   };
-  previewImage?: string;
+  previewImage: string;
   impact: string[];
 };
 
@@ -35,6 +35,7 @@ const projects: Project[] = [
     links: {
       github: "https://github.com/sarbzcode/Axepress",
     },
+    previewImage: "/projects/axepress.jpeg",
     impact: [
       "120+ students onboarded during pilot with feedback loops built into the UI",
       "Dashboards for organizers to triage announcements and track engagement",
@@ -53,7 +54,7 @@ const projects: Project[] = [
     links: {
       github: "https://github.com/sarbzcode/ShiftSync",
     },
-    previewImage: "/projects/shiftsync-preview.svg",
+    previewImage: "/projects/shiftsync.jpeg",
     impact: [
       "Aiming to reduce manual reconciliation time by over 50% through automated shift and payroll summaries.",
       "Enhancing scheduling transparency with real-time updates and role-based access.",
@@ -82,7 +83,7 @@ const projects: Project[] = [
     links: {
       github: "https://github.com/sarbzcode/CV-GPT",
     },
-    previewImage: "/projects/cv-gpt-preview.svg",
+    previewImage: "/projects/cv-gpt.jpeg",
     impact: [
       "Built during a hackathon and awarded 2nd position",
       "CLI + Excel + desktop (Wails) run modes support different user workflows",
@@ -113,8 +114,9 @@ const projects: Project[] = [
     ],
     links: {
       github: "https://github.com/sarbzcode/ChessArena",
-      live: "https://chess-arena-web.vercel.app",
+      live: "https://chess.sarbzcode.com",
     },
+    previewImage: "/projects/chessarena.jpeg",
     impact: [
       "Multiplayer rooms and instant matchmaking queue",
       "Stockfish WASM worker powers AI modes and AI vs AI gameplay",
@@ -133,7 +135,13 @@ declare global {
 
 export default function Projects() {
   const featuredProjectTitle = "CV-GPT";
-  const rest = projects.filter((project) => project.title !== featuredProjectTitle);
+  const rest = projects
+    .filter((project) => project.title !== featuredProjectTitle)
+    .sort((a, b) => {
+      if (a.title === "ChessArena") return -1;
+      if (b.title === "ChessArena") return 1;
+      return 0;
+    });
 
   return (
     <div className="relative z-10 flex flex-col bg-transparent text-neutral-900 dark:text-neutral-100">
@@ -160,77 +168,58 @@ export default function Projects() {
           </div>
 
           <div className="grid gap-8 lg:grid-cols-2">
-            {rest.map((project) => (
-              <div
-                key={project.title}
-                className="flex h-full flex-col gap-5 rounded-3xl border border-neutral-200/60 bg-white/80 p-8 shadow-xl shadow-blue-500/10 backdrop-blur dark:border-white/10 dark:bg-white/5"
-              >
-                <div>
-                  <h3 className="text-xl font-semibold text-neutral-900 dark:text-white">
-                    {project.title}
-                  </h3>
-                </div>
+            {rest.map((project) => {
+              const destination = project.links.live ?? project.links.github;
+              const destinationLabel = project.links.live
+                ? "Open live app"
+                : "Open repository";
 
+              return (
                 <a
-                  href={project.links.live ?? project.links.github}
+                  key={project.title}
+                  href={destination}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block overflow-hidden rounded-2xl border border-neutral-200/70 bg-white/90 shadow-sm shadow-blue-500/5 transition hover:border-blue-300/60 dark:border-white/10 dark:bg-white/10 dark:hover:border-blue-300/40"
+                  className="group flex h-full flex-col gap-5 rounded-3xl border border-neutral-200/60 bg-white/80 p-8 shadow-xl shadow-blue-500/10 backdrop-blur transition hover:-translate-y-1 hover:border-blue-300/60 hover:shadow-2xl hover:shadow-blue-500/15 dark:border-white/10 dark:bg-white/5 dark:hover:border-blue-300/40"
                 >
-                  {project.previewImage ? (
+                  <div>
+                    <h3 className="text-xl font-semibold text-neutral-900 dark:text-white">
+                      {project.title}
+                    </h3>
+                  </div>
+
+                  <div className="overflow-hidden rounded-2xl border border-neutral-200/70 bg-white/90 shadow-sm shadow-blue-500/5 dark:border-white/10 dark:bg-white/10">
                     <img
                       src={project.previewImage}
                       alt={`${project.title} preview`}
                       loading="lazy"
-                      className="h-52 w-full object-cover"
+                      className="h-52 w-full object-cover transition duration-300 group-hover:scale-[1.02]"
                     />
-                  ) : (
-                    <div className="flex h-52 items-center justify-center px-4 text-center text-sm font-medium text-blue-700 dark:text-blue-200">
-                      Open web preview
-                    </div>
-                  )}
-                </a>
-
-                <div>
-                  <h4 className="text-sm font-semibold uppercase tracking-wide text-blue-600 dark:text-blue-300">
-                    Stack
-                  </h4>
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    {project.techStack.map((tech) => (
-                      <span
-                        key={tech}
-                        className="rounded-full border border-neutral-200/70 bg-white/90 px-3 py-1 text-xs font-semibold text-neutral-700 shadow-sm shadow-blue-500/10 dark:border-white/10 dark:bg-white/5 dark:text-neutral-100"
-                      >
-                        {tech}
-                      </span>
-                    ))}
                   </div>
-                </div>
 
-                <div className="mt-auto flex flex-wrap items-center gap-4">
-                  <a
-                    href={project.links.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 transition hover:text-blue-800 dark:text-blue-200 dark:hover:text-white"
-                  >
-                    View repository
+                  <div>
+                    <h4 className="text-sm font-semibold uppercase tracking-wide text-blue-600 dark:text-blue-300">
+                      Stack
+                    </h4>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {project.techStack.map((tech) => (
+                        <span
+                          key={tech}
+                          className="rounded-full border border-neutral-200/70 bg-white/90 px-3 py-1 text-xs font-semibold text-neutral-700 shadow-sm shadow-blue-500/10 dark:border-white/10 dark:bg-white/5 dark:text-neutral-100"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-blue-600 transition group-hover:text-blue-800 dark:text-blue-200 dark:group-hover:text-white">
+                    {destinationLabel}
                     <span aria-hidden="true">&rarr;</span>
-                  </a>
-                  {project.links.live ? (
-                    <a
-                      href={project.links.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 transition hover:text-blue-800 dark:text-blue-200 dark:hover:text-white"
-                    >
-                      View live app
-                      <span aria-hidden="true">&rarr;</span>
-                    </a>
-                  ) : null}
-                </div>
-              </div>
-            ))}
+                  </div>
+                </a>
+              );
+            })}
           </div>
         </div>
       </section>

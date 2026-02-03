@@ -212,7 +212,7 @@ export default function About() {
                 <span>
                   GPA:
                   <span className="ml-2 inline-flex items-center rounded-full border border-blue-400/40 bg-blue-500/10 px-3 py-0.5 text-xs font-semibold uppercase tracking-wide text-blue-600 dark:text-blue-200">
-                    3.54 / 4.33
+                    3.65 / 4.33
                   </span>
                 </span>
               </li>
