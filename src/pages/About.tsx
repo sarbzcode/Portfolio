@@ -153,6 +153,16 @@ export default function About() {
       </section>
       <section className="relative px-6 pt-0 pb-8 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-5xl rounded-3xl border border-neutral-200/60 bg-white/80 p-8 shadow-2xl shadow-blue-500/10 backdrop-blur dark:border-white/10 dark:bg-white/5">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <h2 className="mb-5 text-2xl font-semibold text-blue-700 dark:text-blue-200 sm:text-3xl">
+              Certifications
+            </h2>
+          </div>
+          <Certification />
+        </div>
+      </section>
+      <section className="relative px-6 py-0 pb-8 sm:px-10 lg:px-16">
+        <div className="mx-auto max-w-5xl rounded-3xl border border-neutral-200/60 bg-white/80 p-8 shadow-2xl shadow-blue-500/10 backdrop-blur dark:border-white/10 dark:bg-white/5">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <h2 className="text-2xl font-semibold text-blue-700 dark:text-blue-200 sm:text-3xl">
               Education & Academic Path
@@ -267,16 +277,6 @@ export default function About() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-      <section className="relative px-6 py-0 pb-8 sm:px-10 lg:px-16">
-        <div className="mx-auto max-w-5xl rounded-3xl border border-neutral-200/60 bg-white/80 p-8 shadow-2xl shadow-blue-500/10 backdrop-blur dark:border-white/10 dark:bg-white/5">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <h2 className="mb-5 text-2xl font-semibold text-blue-700 dark:text-blue-200 sm:text-3xl">
-              Certifications
-            </h2>
-          </div>
-          <Certification />
         </div>
       </section>
     </div>
