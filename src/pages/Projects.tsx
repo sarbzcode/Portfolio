@@ -169,56 +169,27 @@ export default function Projects() {
                   <h3 className="text-xl font-semibold text-neutral-900 dark:text-white">
                     {project.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-neutral-700 dark:text-neutral-200/80">
-                    {project.summary}
-                  </p>
                 </div>
 
-                <div className="overflow-hidden rounded-2xl border border-neutral-200/70 bg-white/90 shadow-sm shadow-blue-500/5 dark:border-white/10 dark:bg-white/10">
+                <a
+                  href={project.links.live ?? project.links.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block overflow-hidden rounded-2xl border border-neutral-200/70 bg-white/90 shadow-sm shadow-blue-500/5 transition hover:border-blue-300/60 dark:border-white/10 dark:bg-white/10 dark:hover:border-blue-300/40"
+                >
                   {project.previewImage ? (
                     <img
                       src={project.previewImage}
                       alt={`${project.title} preview`}
                       loading="lazy"
-                      className="h-44 w-full object-cover"
-                    />
-                  ) : project.links.live ? (
-                    <iframe
-                      src={project.links.live}
-                      title={`${project.title} live preview`}
-                      loading="lazy"
-                      className="h-44 w-full border-0 bg-white"
+                      className="h-52 w-full object-cover"
                     />
                   ) : (
-                    <div className="flex h-44 items-center justify-center px-4 text-center text-sm text-neutral-600 dark:text-neutral-200/75">
-                      Preview image coming soon.
+                    <div className="flex h-52 items-center justify-center px-4 text-center text-sm font-medium text-blue-700 dark:text-blue-200">
+                      Open web preview
                     </div>
                   )}
-                  <div className="border-t border-neutral-200/70 px-5 py-3 dark:border-white/10">
-                    <h4 className="text-sm font-semibold uppercase tracking-wide text-blue-600 dark:text-blue-300">
-                      Website preview
-                    </h4>
-                    <p className="mt-1 text-xs text-neutral-600 dark:text-neutral-200/70">
-                      Open project links to view the full experience.
-                    </p>
-                  </div>
-                </div>
-
-                <div>
-                  <h4 className="text-sm font-semibold uppercase tracking-wide text-blue-600 dark:text-blue-300">
-                    Impact
-                  </h4>
-                  <ul className="mt-3 space-y-3">
-                    {project.impact.map((impact) => (
-                      <li key={impact} className="flex items-start gap-3">
-                        <span className="mt-1 inline-block h-2 w-2 rounded-full bg-blue-500 dark:bg-blue-300" />
-                        <span className="text-sm leading-relaxed text-neutral-700 dark:text-neutral-200/80">
-                          {impact}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                </a>
 
                 <div>
                   <h4 className="text-sm font-semibold uppercase tracking-wide text-blue-600 dark:text-blue-300">
