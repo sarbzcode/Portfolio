@@ -33,6 +33,10 @@ const techStack = [
         icon: <SiTailwindcss className="text-cyan-400" />,
       },
       { name: "Vite", icon: <SiVite className="text-purple-500" /> },
+      {
+        name: "Zustand",
+        icon: <span className="font-semibold text-blue-600">Z</span>,
+      },
     ],
   },
 
@@ -52,17 +56,43 @@ const techStack = [
         name: "Express",
         icon: <SiExpress className="text-gray-700 dark:text-gray-200" />,
       },
-      { name: "Python", icon: <SiPython className="text-yellow-400" /> }
+      {
+        name: "Fastify",
+        icon: <span className="font-semibold text-neutral-700 dark:text-neutral-200">F</span>,
+      },
+      {
+        name: "Socket.IO",
+        icon: <span className="font-semibold text-blue-700 dark:text-blue-300">S</span>,
+      },
+      { name: "Go", icon: <span className="font-semibold text-cyan-500">Go</span> },
+      { name: "Python", icon: <SiPython className="text-yellow-400" /> },
     ],
-  }
+  },
+  {
+    category: "AI & Tooling",
+    items: [
+      { name: "OpenAI APIs", icon: <span className="font-semibold text-emerald-600">AI</span> },
+      { name: "TF-IDF / Cosine", icon: <span className="font-semibold text-indigo-600">ML</span> },
+      { name: "chess.js", icon: <span className="font-semibold text-slate-700 dark:text-slate-200">CJ</span> },
+      { name: "Stockfish WASM", icon: <span className="font-semibold text-slate-800 dark:text-slate-100">SF</span> },
+      { name: "Wails", icon: <span className="font-semibold text-violet-600">W</span> },
+      { name: "Excel VBA", icon: <span className="font-semibold text-green-700">XLS</span> },
+    ],
+  },
 ];
 
 const timeline = [
   {
-    period: "Now",
-    title: "ShiftSync & analytics initiatives",
+    period: "Jan 2026",
+    title: "ChessArena & CV-GPT",
     description:
-      "Working with workforce scheduling, payroll automation, and data-visualization workflows while strengthening backend and API design skills.",
+      "Built ChessArena with AI difficulty modes, room-based multiplayer, and matchmaking, and built CV-GPT for resume screening with heuristic + optional semantic scoring.",
+  },
+  {
+    period: "Sep 2025",
+    title: "ShiftSync - Workforce Scheduling & Payroll",
+    description:
+      "Built ShiftSync to simplify scheduling and payroll workflows with end-to-end planning, role-based dashboards, and automation-focused reporting.",
   },
   {
     period: "Jan 2025",

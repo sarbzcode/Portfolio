@@ -1,6 +1,7 @@
 import { FaGithub } from "react-icons/fa";
 
 const role = "./role.png";
+const cvGptPreview = "/projects/cv-gpt-preview.svg";
 
 export default function FeaturedProject() {
   return (
@@ -21,11 +22,8 @@ export default function FeaturedProject() {
             </h3>
             <p className="text-base leading-relaxed text-neutral-700 dark:text-neutral-200/85">
               Built in a hackathon where it secured 2nd position, CV-GPT ranks
-              resumes against a job description using a Go matcher with
-              heuristic scoring and optional OpenAI semantic scoring. It
-              supports .txt/.md/.pdf/.docx/.rtf files, runs via CLI, Excel
-              macro workbook, or Wails desktop app, and exports ranked CSV
-              results with strengths, weaknesses, and explanations.
+              resumes against job descriptions with heuristic scoring and
+              optional semantic scoring across CLI, Excel, and desktop modes.
             </p>
             <ul className="flex flex-wrap gap-2 text-xs">
               {[
@@ -114,12 +112,17 @@ export default function FeaturedProject() {
             </div>
           </div>
           <div className="flex flex-col justify-between gap-6 rounded-3xl border border-blue-200/40 bg-blue-50/70 p-6 text-left text-neutral-700 shadow-inner shadow-blue-500/10 dark:border-blue-400/20 dark:bg-blue-500/5 dark:text-blue-100/90">
-            <p className="text-sm leading-relaxed">
-              "Built during a hackathon and awarded 2nd position, CV-GPT
-              focuses on practical hiring workflows: ingest multi-format
-              resumes, redact sensitive details before scoring, and output
-              transparent ranked results with clear explanations."
-            </p>
+            <div className="space-y-3">
+              <img
+                src={cvGptPreview}
+                alt="CV-GPT preview"
+                loading="lazy"
+                className="h-44 w-full rounded-2xl border border-blue-200/70 object-cover dark:border-blue-400/30"
+              />
+              <p className="text-xs uppercase tracking-wide text-blue-700 dark:text-blue-200">
+                Website preview area
+              </p>
+            </div>
             <div className="flex items-center gap-3 text-xs uppercase tracking-wide text-blue-600 dark:text-blue-200/90">
               <img
                 src={role}

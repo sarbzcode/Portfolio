@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="CV-GPT preview placeholder">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#eff6ff" />
+      <stop offset="100%" stop-color="#dbeafe" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)" />
+  <rect x="80" y="80" width="1440" height="740" rx="34" fill="#ffffff" stroke="#bfdbfe" stroke-width="4" />
+  <text x="140" y="220" fill="#1d4ed8" font-size="64" font-family="Segoe UI, Arial, sans-serif" font-weight="700">CV-GPT Preview</text>
+  <text x="140" y="300" fill="#1f2937" font-size="36" font-family="Segoe UI, Arial, sans-serif">Replace this file with your CV-GPT screenshot.</text>
+  <text x="140" y="360" fill="#1f2937" font-size="36" font-family="Segoe UI, Arial, sans-serif">Path: public/projects/cv-gpt-preview.svg</text>
+</svg>

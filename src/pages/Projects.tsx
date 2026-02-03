@@ -11,6 +11,7 @@ type Project = {
     github: string;
     live?: string;
   };
+  previewImage?: string;
   impact: string[];
 };
 
@@ -52,6 +53,7 @@ const projects: Project[] = [
     links: {
       github: "https://github.com/sarbzcode/ShiftSync",
     },
+    previewImage: "/projects/shiftsync-preview.svg",
     impact: [
       "Aiming to reduce manual reconciliation time by over 50% through automated shift and payroll summaries.",
       "Enhancing scheduling transparency with real-time updates and role-based access.",
@@ -80,6 +82,7 @@ const projects: Project[] = [
     links: {
       github: "https://github.com/sarbzcode/CV-GPT",
     },
+    previewImage: "/projects/cv-gpt-preview.svg",
     impact: [
       "Built during a hackathon and awarded 2nd position",
       "CLI + Excel + desktop (Wails) run modes support different user workflows",
@@ -110,7 +113,7 @@ const projects: Project[] = [
     ],
     links: {
       github: "https://github.com/sarbzcode/ChessArena",
-      live: "https://chess.sarbzcode.com",
+      live: "https://chess-arena-web.vercel.app",
     },
     impact: [
       "Multiplayer rooms and instant matchmaking queue",
@@ -171,16 +174,34 @@ export default function Projects() {
                   </p>
                 </div>
 
-                <div className="rounded-2xl border border-neutral-200/70 bg-white/90 p-5 shadow-sm shadow-blue-500/5 dark:border-white/10 dark:bg-white/10">
-                  <h4 className="text-sm font-semibold uppercase tracking-wide text-blue-600 dark:text-blue-300">
-                    Problem & solution
-                  </h4>
-                  <p className="mt-2 text-sm leading-relaxed text-neutral-700 dark:text-neutral-200/80">
-                    {project.problem}
-                  </p>
-                  <p className="mt-2 text-sm leading-relaxed text-neutral-700 dark:text-neutral-200/80">
-                    {project.solution}
-                  </p>
+                <div className="overflow-hidden rounded-2xl border border-neutral-200/70 bg-white/90 shadow-sm shadow-blue-500/5 dark:border-white/10 dark:bg-white/10">
+                  {project.previewImage ? (
+                    <img
+                      src={project.previewImage}
+                      alt={`${project.title} preview`}
+                      loading="lazy"
+                      className="h-44 w-full object-cover"
+                    />
+                  ) : project.links.live ? (
+                    <iframe
+                      src={project.links.live}
+                      title={`${project.title} live preview`}
+                      loading="lazy"
+                      className="h-44 w-full border-0 bg-white"
+                    />
+                  ) : (
+                    <div className="flex h-44 items-center justify-center px-4 text-center text-sm text-neutral-600 dark:text-neutral-200/75">
+                      Preview image coming soon.
+                    </div>
+                  )}
+                  <div className="border-t border-neutral-200/70 px-5 py-3 dark:border-white/10">
+                    <h4 className="text-sm font-semibold uppercase tracking-wide text-blue-600 dark:text-blue-300">
+                      Website preview
+                    </h4>
+                    <p className="mt-1 text-xs text-neutral-600 dark:text-neutral-200/70">
+                      Open project links to view the full experience.
+                    </p>
+                  </div>
                 </div>
 
                 <div>
