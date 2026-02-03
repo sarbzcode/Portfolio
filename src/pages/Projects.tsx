@@ -1,6 +1,20 @@
 
 import FeaturedProject from "../components/FeaturedProject.tsx";
-const projects = [
+
+type Project = {
+  title: string;
+  summary: string;
+  problem: string;
+  solution: string;
+  techStack: string[];
+  links: {
+    github: string;
+    live?: string;
+  };
+  impact: string[];
+};
+
+const projects: Project[] = [
   {
     title: "Axepress - Campus Event & Noticeboard Platform",
     summary:
@@ -44,7 +58,65 @@ const projects = [
       "Developing modular APIs to support a future mobile dashboard and analytics expansion.",
       "Modular API design supports future mobile clients",
     ],
-  }
+  },
+  {
+    title: "CV-GPT",
+    summary:
+      "Go-powered resume screening tool that ranks resumes against a job description with heuristic scoring + optional OpenAI semantic scoring.",
+    problem:
+      "Resume screening can be inconsistent and time-intensive when teams compare many formats manually against role requirements.",
+    solution:
+      "Built a Go pipeline that accepts .txt/.md/.pdf/.docx/.rtf files and outputs ranked CSV results with strengths, weaknesses, and scoring explanations. It runs in CLI, Excel macro workbook, and Wails desktop modes, with optional OpenAI embeddings + semantic scoring for richer ranking context.",
+    techStack: [
+      "Go",
+      "TF-IDF",
+      "Cosine similarity",
+      "OpenAI embeddings (optional)",
+      "Semantic scoring (optional)",
+      "Wails",
+      "Excel VBA",
+      "CSV output",
+    ],
+    links: {
+      github: "https://github.com/sarbzcode/CV-GPT",
+    },
+    impact: [
+      "CLI + Excel + desktop (Wails) run modes support different user workflows",
+      "PII and demographic redaction runs before scoring",
+      "Optional OpenAI mode adds semantic ranking and richer explanations",
+    ],
+  },
+  {
+    title: "ChessArena",
+    summary:
+      "Full-stack chess app with AI difficulty modes, room-based multiplayer, and instant matchmaking (no login required).",
+    problem:
+      "Most chess apps force account setup or split AI practice and multiplayer into separate experiences, slowing down quick play.",
+    solution:
+      "Created a unified experience with Beginner/Intermediate/Expert AI modes, AI vs AI spectator play, invite-code rooms, and a Find Opponent queue. Stockfish WASM runs in a web worker while server-authoritative validation keeps multiplayer moves trustworthy.",
+    techStack: [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "Zustand",
+      "react-chessboard",
+      "Socket.IO",
+      "Node.js",
+      "Fastify",
+      "chess.js",
+      "Stockfish WASM",
+    ],
+    links: {
+      github: "https://github.com/sarbzcode/ChessArena",
+      live: "https://chess.sarbzcode.com",
+    },
+    impact: [
+      "Multiplayer rooms and instant matchmaking queue",
+      "Stockfish WASM worker powers AI modes and AI vs AI gameplay",
+      "Live move list, captured pieces, and promotion handling",
+    ],
+  },
 ];
 
 declare global {
@@ -141,7 +213,7 @@ export default function Projects() {
                   </div>
                 </div>
 
-                <div className="mt-auto">
+                <div className="mt-auto flex flex-wrap items-center gap-4">
                   <a
                     href={project.links.github}
                     target="_blank"
@@ -151,6 +223,17 @@ export default function Projects() {
                     View repository
                     <span aria-hidden="true">&rarr;</span>
                   </a>
+                  {project.links.live ? (
+                    <a
+                      href={project.links.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 transition hover:text-blue-800 dark:text-blue-200 dark:hover:text-white"
+                    >
+                      View live app
+                      <span aria-hidden="true">&rarr;</span>
+                    </a>
+                  ) : null}
                 </div>
               </div>
             ))}
