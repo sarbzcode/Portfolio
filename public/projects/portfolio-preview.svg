@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Portfolio preview</title>
+  <desc id="desc">Stylized preview image with the word Portfolio</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="55%" stop-color="#1e3a8a" />
+      <stop offset="100%" stop-color="#2563eb" />
+    </linearGradient>
+    <linearGradient id="chip" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#dbeafe" />
+      <stop offset="100%" stop-color="#bfdbfe" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#bg)" />
+
+  <g opacity="0.15">
+    <circle cx="120" cy="120" r="90" fill="#93c5fd" />
+    <circle cx="1060" cy="540" r="140" fill="#93c5fd" />
+    <circle cx="980" cy="120" r="60" fill="#bfdbfe" />
+  </g>
+
+  <rect x="110" y="120" width="980" height="435" rx="34" fill="#ffffff" opacity="0.1" />
+  <rect x="150" y="170" width="510" height="335" rx="24" fill="#ffffff" opacity="0.12" />
+  <rect x="700" y="170" width="350" height="58" rx="16" fill="url(#chip)" opacity="0.95" />
+  <rect x="700" y="252" width="310" height="58" rx="16" fill="url(#chip)" opacity="0.8" />
+  <rect x="700" y="334" width="260" height="58" rx="16" fill="url(#chip)" opacity="0.65" />
+
+  <text x="170" y="328" fill="#ffffff" font-family="Segoe UI, Arial, sans-serif" font-size="88" font-weight="700" letter-spacing="2">
+    PORTFOLIO
+  </text>
+  <text x="174" y="382" fill="#dbeafe" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="500" letter-spacing="1.5">
+    Project Showcase
+  </text>
+</svg>

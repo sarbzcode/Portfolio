@@ -123,6 +123,32 @@ const projects: Project[] = [
       "Live move list, captured pieces, and promotion handling",
     ],
   },
+  {
+    title: "Portfolio",
+    summary:
+      "Personal portfolio website showcasing projects, certifications, and technical journey with polished responsive UI.",
+    problem:
+      "A single, focused place was needed to present projects, stack, and achievements without requiring recruiters to jump across platforms.",
+    solution:
+      "Built a React + TypeScript experience with reusable components, themed sections, project previews, and deployment-ready static assets.",
+    techStack: [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "Three.js",
+      "Express",
+    ],
+    links: {
+      github: "https://github.com/sarbzcode/Portfolio",
+    },
+    previewImage: "/projects/portfolio-preview.svg",
+    impact: [
+      "Unified showcase for projects, certifications, and profile links",
+      "Responsive layout and reusable section patterns speed up future updates",
+      "Production deployment on Vercel with static asset pipeline",
+    ],
+  },
 ];
 
 declare global {
