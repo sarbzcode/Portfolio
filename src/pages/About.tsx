@@ -81,10 +81,6 @@ const techStack = [
         name: "Excel VBA",
         icon: <span className="font-semibold text-green-700">XLS</span>,
       },
-      {
-        name: ".txt/.md/.pdf/.docx/.rtf",
-        icon: <span className="font-semibold text-neutral-700 dark:text-neutral-200">IO</span>,
-      },
     ],
   },
   {
