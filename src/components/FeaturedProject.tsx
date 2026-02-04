@@ -1,5 +1,3 @@
-import { FaGithub } from "react-icons/fa";
-
 const role = "./role.png";
 const cvGptPreview = "/projects/cv-gpt.jpeg";
 
@@ -18,12 +16,13 @@ export default function FeaturedProject() {
         <div className="grid gap-6 rounded-3xl border border-neutral-200/60 bg-white/85 p-8 text-neutral-800 shadow-xl shadow-blue-500/10 backdrop-blur dark:border-white/10 dark:bg-white/5 dark:text-neutral-200 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="space-y-4">
             <h3 className="text-xl font-semibold text-neutral-900 dark:text-white sm:text-2xl">
-              CV-GPT - Hackathon Resume Screening Platform
+              ResumeGPT (CV-GPT) - Hackathon Resume Screening Platform
             </h3>
             <p className="text-base leading-relaxed text-neutral-700 dark:text-neutral-200/85">
-              Built in a hackathon where it secured 2nd position, CV-GPT ranks
-              resumes against job descriptions with heuristic scoring and
-              optional semantic scoring across CLI, Excel, and desktop modes.
+              Built in a hackathon where it secured 2nd position, ResumeGPT
+              ranks resumes against job descriptions using Go core logic, a
+              JavaScript-powered Wails desktop UI, and optional OpenAI API
+              scoring support.
             </p>
             <ul className="flex flex-wrap gap-2 text-xs">
               {[
@@ -35,45 +34,19 @@ export default function FeaturedProject() {
                 },
                 {
                   icon: (
-                    <span style={{ color: "#2563eb", fontWeight: 700 }}>TF</span>
-                  ),
-                  label: "TF-IDF",
-                },
-                {
-                  icon: (
-                    <span style={{ color: "#2563eb", fontWeight: 700 }}>
-                      cos
-                    </span>
-                  ),
-                  label: "Cosine",
-                },
-                {
-                  icon: (
-                    <span style={{ color: "#16a34a", fontWeight: 700 }}>
-                      CLI
-                    </span>
-                  ),
-                  label: "CLI",
-                },
-                {
-                  icon: (
-                    <span style={{ color: "#166534", fontWeight: 700 }}>
-                      XLS
-                    </span>
-                  ),
-                  label: "Excel VBA",
-                },
-                {
-                  icon: (
                     <span style={{ color: "#4338ca", fontWeight: 700 }}>
-                      APP
+                      W
                     </span>
                   ),
                   label: "Wails",
                 },
                 {
-                  icon: <FaGithub style={{ color: "#181717" }} />,
-                  label: "GitHub",
+                  icon: (
+                    <span style={{ color: "#f59e0b", fontWeight: 700 }}>
+                      JS
+                    </span>
+                  ),
+                  label: "JavaScript",
                 },
                 {
                   icon: (
@@ -81,7 +54,7 @@ export default function FeaturedProject() {
                       AI
                     </span>
                   ),
-                  label: "OpenAI (opt)",
+                  label: "OpenAI API",
                 },
               ].map((tech, i) => (
                 <li

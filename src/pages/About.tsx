@@ -1,15 +1,11 @@
 ﻿import {
   SiReact,
-  SiNextdotjs,
   SiTypescript,
   SiJavascript,
   SiTailwindcss,
   SiVite,
   SiNodedotjs,
   SiExpress,
-  SiPython,
-  SiPostgresql,
-  SiMysql,
   SiMongodb,
 } from "react-icons/si";
 import Certification from "../components/Certification.tsx";
@@ -19,10 +15,6 @@ const techStack = [
     category: "Frontend",
     items: [
       { name: "React", icon: <SiReact className="text-sky-500" /> },
-      {
-        name: "Next.js",
-        icon: <SiNextdotjs className="text-gray-800 dark:text-white" />,
-      },
       { name: "TypeScript", icon: <SiTypescript className="text-blue-600" /> },
       {
         name: "JavaScript",
@@ -37,19 +29,22 @@ const techStack = [
         name: "Zustand",
         icon: <span className="font-semibold text-blue-600">Z</span>,
       },
+      {
+        name: "Chart.js",
+        icon: <span className="font-semibold text-emerald-600">CH</span>,
+      },
+      {
+        name: "Three.js",
+        icon: <span className="font-semibold text-neutral-700 dark:text-neutral-200">3D</span>,
+      },
+      {
+        name: "react-chessboard",
+        icon: <span className="font-semibold text-slate-700 dark:text-slate-200">RB</span>,
+      },
     ],
   },
-
   {
-    category: "Database",
-    items: [
-      { name: "MySQL", icon: <SiMysql className="text-sky-600" /> },
-      { name: "PostgreSQL", icon: <SiPostgresql className="text-blue-500" /> },
-      { name: "MongoDB", icon: <SiMongodb className="text-green-600" /> },
-    ],
-  },
-  {
-    category: "Backend",
+    category: "Backend & Realtime",
     items: [
       { name: "Node.js", icon: <SiNodedotjs className="text-green-500" /> },
       {
@@ -64,19 +59,57 @@ const techStack = [
         name: "Socket.IO",
         icon: <span className="font-semibold text-blue-700 dark:text-blue-300">S</span>,
       },
-      { name: "Go", icon: <span className="font-semibold text-cyan-500">Go</span> },
-      { name: "Python", icon: <SiPython className="text-yellow-400" /> },
+      {
+        name: "Go",
+        icon: <span className="font-semibold text-cyan-500">Go</span>,
+      },
+      {
+        name: "Wails",
+        icon: <span className="font-semibold text-violet-600">W</span>,
+      },
     ],
   },
   {
-    category: "AI & Tooling",
+    category: "Data & Automation",
     items: [
-      { name: "OpenAI APIs", icon: <span className="font-semibold text-emerald-600">AI</span> },
-      { name: "TF-IDF / Cosine", icon: <span className="font-semibold text-indigo-600">ML</span> },
-      { name: "chess.js", icon: <span className="font-semibold text-slate-700 dark:text-slate-200">CJ</span> },
-      { name: "Stockfish WASM", icon: <span className="font-semibold text-slate-800 dark:text-slate-100">SF</span> },
-      { name: "Wails", icon: <span className="font-semibold text-violet-600">W</span> },
-      { name: "Excel VBA", icon: <span className="font-semibold text-green-700">XLS</span> },
+      { name: "MongoDB", icon: <SiMongodb className="text-green-600" /> },
+      {
+        name: "CSV output",
+        icon: <span className="font-semibold text-green-700">CSV</span>,
+      },
+      {
+        name: "Excel VBA",
+        icon: <span className="font-semibold text-green-700">XLS</span>,
+      },
+      {
+        name: ".txt/.md/.pdf/.docx/.rtf",
+        icon: <span className="font-semibold text-neutral-700 dark:text-neutral-200">IO</span>,
+      },
+    ],
+  },
+  {
+    category: "AI & Intelligence",
+    items: [
+      {
+        name: "OpenAI API",
+        icon: <span className="font-semibold text-emerald-600">AI</span>,
+      },
+      {
+        name: "TF-IDF",
+        icon: <span className="font-semibold text-indigo-600">TF</span>,
+      },
+      {
+        name: "Cosine similarity",
+        icon: <span className="font-semibold text-indigo-600">COS</span>,
+      },
+      {
+        name: "chess.js",
+        icon: <span className="font-semibold text-slate-700 dark:text-slate-200">CJ</span>,
+      },
+      {
+        name: "Stockfish WASM",
+        icon: <span className="font-semibold text-slate-800 dark:text-slate-100">SF</span>,
+      },
     ],
   },
 ];
