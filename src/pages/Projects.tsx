@@ -43,7 +43,7 @@ const projects: Project[] = [
     ],
   },
   {
-    title: "ShiftSync - Workforce Scheduling & Payroll",
+    title: "ShyftSync - Workforce Scheduling & Payroll",
     summary:
       "Currently developing a workforce scheduling and payroll platform to simplify team coordination and automate pay reporting.",
     problem:
@@ -52,7 +52,7 @@ const projects: Project[] = [
       "Designing and implementing an end-to-end MERN system with drag-and-drop scheduling, shift conflict detection, and automated payroll calculations. Current milestones focus on refining role-based dashboards and integrating data visualizations.",
     techStack: ["React", "Node.js", "Express", "MongoDB", "Chart.js"],
     links: {
-      github: "https://github.com/sarbzcode/ShiftSync",
+      github: "https://github.com/sarbzcode/ShyftSync",
     },
     previewImage: "/projects/shiftsync.jpeg",
     impact: [
