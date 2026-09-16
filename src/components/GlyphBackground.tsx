@@ -1,4 +1,5 @@
-﻿import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
+import { useReducedMotion } from '../hooks/useReducedMotion';
 
 const CHARACTERS = [':', ';', '*', '+', '=', '~', '^', '_', '<', '>', 'i', 'I', 'l', 'L', '!', '1', '?', '/', '\\', '|', '(', ')', '{', '}', '[', ']', 't', 'f', 'j', 'r', 'v', 'x', 'X', '%', '$', '#', '@', '&', '0', 'O', 'o', '9', '8', '6', '5', '3', '2','S', 'A', 'R', 'B','S', 'A', 'R', 'B','S', 'A', 'R', 'B','S', 'A', 'R', 'B'];
 const DEFAULT_BACKGROUND = '#050608';
@@ -37,9 +38,11 @@ interface Glyph {
 const pickRandomChar = () => CHARACTERS[Math.floor(Math.random() * CHARACTERS.length)];
 
 const GlyphBackground = () => {
+  const reducedMotion = useReducedMotion();
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
+    if (reducedMotion) return;
     const canvas = canvasRef.current;
     const context = canvas?.getContext('2d');
 
@@ -252,7 +255,7 @@ const GlyphBackground = () => {
       window.removeEventListener(BACKGROUND_CHANGE_EVENT, handleBackgroundChange as EventListener);
       window.cancelAnimationFrame(animationFrameId);
     };
-  }, []);
+  }, [reducedMotion]);
 
   return (
     <canvas

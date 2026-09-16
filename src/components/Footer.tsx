@@ -1,10 +1,8 @@
 import { Link } from "react-router-dom";
 
-
-const githubHref = "https://github.com/sarb";
+const githubHref = "https://github.com/sarbzcode";
 const linkedinHref = "https://www.linkedin.com/in/sarbzcode";
 const iconClasses = "h-5 w-5";
-
 
 function EmailIcon() {
   return (
@@ -61,12 +59,15 @@ export default function Footer() {
     <footer className="mt-auto w-full border-t border-white/10 bg-white/70 dark:bg-black/60 backdrop-blur-xl shadow-lg">
       <div className="mx-auto flex w-[90%] max-w-5xl flex-col items-center gap-4 px-6 py-6 text-center sm:w-[80%] sm:flex-row sm:justify-between sm:text-left lg:w-[65%] xl:w-1/2">
         <span className="text-sm font-medium text-black/80 dark:text-white/80 sm:text-base">
-          {"\u00A9 2025 Sarb. All rights reserved."}
+          {"\u00A9 " + new Date().getFullYear() + " Sarb. All rights reserved."}
         </span>
-        <nav className="flex items-center gap-4 text-sm font-semibold text-blue-600 dark:text-blue-400 sm:text-base">
+        <nav
+          aria-label="Footer links"
+          className="flex items-center gap-4 text-sm font-semibold text-blue-600 dark:text-blue-400 sm:text-base"
+        >
           <Link
-            to="/Contact"
-            className="flex items-center gap-2 transition hover:text-blue-700 dark:hover:text-blue-300"
+            to="/contact"
+            className="flex items-center gap-2 text-blue-700 dark:text-blue-300 transition hover:text-blue-700 dark:hover:text-blue-300"
           >
             <EmailIcon />
             <span>Email</span>
@@ -75,7 +76,7 @@ export default function Footer() {
             href={githubHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 transition hover:text-blue-700 dark:hover:text-blue-300"
+            className="flex items-center gap-2 text-blue-700 dark:text-blue-300 transition hover:text-blue-700 dark:hover:text-blue-300"
           >
             <GitHubIcon />
             <span>GitHub</span>
@@ -84,7 +85,7 @@ export default function Footer() {
             href={linkedinHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 transition hover:text-blue-700 dark:hover:text-blue-300"
+            className="flex items-center gap-2 text-blue-700 dark:text-blue-300 transition hover:text-blue-700 dark:hover:text-blue-300"
           >
             <LinkedInIcon />
             <span>LinkedIn</span>

@@ -3,6 +3,9 @@ import Lottie from "lottie-react";
 import mailAnimation from "../assets/mail.json";
 import type { ChangeEvent, FormEvent } from "react";
 
+import { socialLinks } from "../data/portfolio";
+import { useReducedMotion } from "../hooks/useReducedMotion";
+
 const initialFormState = {
   name: "",
   email: "",
@@ -10,12 +13,15 @@ const initialFormState = {
 };
 
 export default function SendMail() {
+  const reducedMotion = useReducedMotion();
   const [form, setForm] = useState(initialFormState);
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleChange = (
-    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = event.target;
     setForm((prev) => ({ ...prev, [name]: value }));
@@ -55,8 +61,10 @@ export default function SendMail() {
         payload = {};
       }
 
-      if (!response.ok || payload.ok === false) {
-        throw new Error(payload.error || "Unable to send your message right now.");
+      if (!response.ok || payload.ok !== true) {
+        throw new Error(
+          payload.error || "Unable to send your message right now.",
+        );
       }
 
       setStatus("success");
@@ -67,25 +75,38 @@ export default function SendMail() {
       setErrorMessage(
         error instanceof Error
           ? error.message
-          : "Unable to send your message right now."
+          : "Unable to send your message right now.",
       );
     }
   };
 
   return (
     <div className="relative z-10 flex flex-col bg-transparent text-neutral-900 dark:text-neutral-100">
-      <section className="relative px-6 pb-16 sm:px-10 lg:px-16">
+      <section
+        id="contact"
+        className="relative px-6 pb-16 pt-12 sm:px-8 lg:px-12"
+      >
         <div className="mx-auto max-w-5xl rounded-3xl border border-neutral-200/60 bg-white/80 p-8 shadow-2xl shadow-blue-500/10 backdrop-blur dark:border-white/10 dark:bg-white/5">
           <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
             <div>
               <h2 className="text-2xl font-semibold text-blue-700 dark:text-blue-200 sm:text-3xl">
                 Send a quick note
               </h2>
+              <p className="mt-4 section-copy">
+                Have a project or co-op opportunity in mind?
+              </p>
+              <a
+                href={socialLinks.email}
+                className="mt-2 inline-block text-sm text-blue-700 dark:text-blue-200"
+              >
+                sarbzcode@gmail.com
+              </a>
               <div className="hidden lg:flex justify-center mt-10 mx-10">
                 <Lottie
                   animationData={mailAnimation}
-                  loop
-                  autoplay
+                  key={String(reducedMotion)}
+                  loop={!reducedMotion}
+                  autoplay={!reducedMotion}
                   className="w-[90%] max-w-[420px] h-auto opacity-80 hover:opacity-100 transition-opacity duration-500"
                 />
               </div>
@@ -114,7 +135,7 @@ export default function SendMail() {
                     htmlFor="email"
                     className="text-sm font-semibold text-neutral-700 dark:text-neutral-200"
                   >
-                    Email or contact handle
+                    Email
                   </label>
                   <input
                     id="email"
@@ -147,7 +168,7 @@ export default function SendMail() {
                   type="submit"
                   disabled={status === "loading"}
                   aria-busy={status === "loading"}
-                  className="inline-flex items-center justify-center rounded-full bg-blue-600 px-6 py-2.5 text-sm font-semibold text-white shadow-lg shadow-blue-600/30 transition hover:-translate-y-0.5 hover:bg-blue-500 disabled:translate-y-0 disabled:cursor-not-allowed disabled:opacity-70"
+                  className="primary-button dark:bg-blue-600 dark:text-white dark:hover:bg-blue-700 disabled:translate-y-0 disabled:cursor-not-allowed disabled:opacity-70"
                 >
                   {status === "loading" ? "Sending..." : "Send Email"}
                 </button>

@@ -1,117 +1,116 @@
-const role = "./role.png";
-const cvGptPreview = "/projects/cv-gpt.jpeg";
+import { featuredProjects } from "../data/portfolio";
 
 export default function FeaturedProject() {
   return (
-    <section className="relative px-6 py-16 sm:px-8 lg:px-12">
-      <div className="mx-auto max-w-5xl space-y-8">
-        <div className="flex items-center justify-between">
-          <h2 className="text-2xl font-semibold text-blue-700 dark:text-blue-200 sm:text-3xl">
-            Featured Project
-          </h2>
-          <span className="rounded-full border border-blue-400/40 bg-blue-500/10 px-4 py-1 text-xs uppercase tracking-widest text-blue-600 dark:text-blue-200">
-            Hackathon 2nd Place
-          </span>
+    <section id="projects" className="portfolio-section">
+      <div className="portfolio-container space-y-8">
+        <div className="space-y-3">
+          <h2 className="section-heading">Featured Projects</h2>
+          <p className="section-copy">
+            From trustworthy data pipelines to connected web and mobile
+            workflows.
+          </p>
         </div>
-        <div className="grid gap-6 rounded-3xl border border-neutral-200/60 bg-white/85 p-8 text-neutral-800 shadow-xl shadow-blue-500/10 backdrop-blur dark:border-white/10 dark:bg-white/5 dark:text-neutral-200 lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="space-y-4">
-            <h3 className="text-xl font-semibold text-neutral-900 dark:text-white sm:text-2xl">
-              ResumeGPT (CV-GPT) - Hackathon Resume Screening Platform
-            </h3>
-            <p className="text-base leading-relaxed text-neutral-700 dark:text-neutral-200/85">
-              Built in a hackathon where it secured 2nd position, ResumeGPT
-              ranks resumes against job descriptions using Go core logic, a
-              JavaScript-powered Wails desktop UI, and optional OpenAI API
-              scoring support.
-            </p>
-            <ul className="flex flex-wrap gap-2 text-xs">
-              {[
-                {
-                  icon: (
-                    <span style={{ color: "#00ADD8", fontWeight: 700 }}>Go</span>
-                  ),
-                  label: "Go",
-                },
-                {
-                  icon: (
-                    <span style={{ color: "#4338ca", fontWeight: 700 }}>
-                      W
-                    </span>
-                  ),
-                  label: "Wails",
-                },
-                {
-                  icon: (
-                    <span style={{ color: "#f59e0b", fontWeight: 700 }}>
-                      JS
-                    </span>
-                  ),
-                  label: "JavaScript",
-                },
-                {
-                  icon: (
-                    <span style={{ color: "#0f172a", fontWeight: 700 }}>
-                      AI
-                    </span>
-                  ),
-                  label: "OpenAI API",
-                },
-              ].map((tech, i) => (
-                <li
-                  key={i}
-                  className="flex items-center justify-center gap-2 rounded-full border border-blue-300/40 
-                         bg-blue-500/10 px-3 py-1 text-neutral-700 dark:text-neutral-200
-                         hover:scale-105 hover:shadow-md hover:shadow-blue-400/30 transition-all duration-200"
-                  style={{ minWidth: "115px", height: "36px" }} // makes every badge identical in height + width
-                >
-                  <span className="text-[16px] flex items-center justify-center w-4 h-4">
-                    {tech.icon}
-                  </span>
-                  <span className="font-medium">{tech.label}</span>
-                </li>
-              ))}
-            </ul>
-
-            <div>
-              <a
-                href="https://github.com/sarbzcode/CV-GPT"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 transition hover:text-blue-800 dark:text-blue-200 dark:hover:text-white"
-              >
-                View Project on GitHub
-                <span aria-hidden="true">&gt;</span>
-              </a>
-            </div>
-          </div>
-          <div className="flex flex-col justify-between gap-6 rounded-3xl border border-blue-200/40 bg-blue-50/70 p-6 text-left text-neutral-700 shadow-inner shadow-blue-500/10 dark:border-blue-400/20 dark:bg-blue-500/5 dark:text-blue-100/90">
-            <div className="space-y-3">
-              <img
-                src={cvGptPreview}
-                alt="CV-GPT preview"
-                loading="lazy"
-                className="h-44 w-full rounded-2xl border border-blue-200/70 object-cover dark:border-blue-400/30"
-              />
-              <p className="text-xs uppercase tracking-wide text-blue-700 dark:text-blue-200">
-                Website preview area
-              </p>
-            </div>
-            <div className="flex items-center gap-3 text-xs uppercase tracking-wide text-blue-600 dark:text-blue-200/90">
-              <img
-                src={role}
-                className="h-10 w-10 object-cover rounded-full border border-blue-300/50 bg-blue-100/80 dark:border-blue-400/30 dark:bg-blue-500/20 "
-              />
-              <div>
-                <p className="font-semibold text-neutral-800 dark:text-blue-100">
-                  Achievement
+        {featuredProjects.map((project, index) => (
+          <article
+            key={project.name}
+            className="portfolio-card overflow-hidden"
+          >
+            <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-2">
+              <div className="min-w-0 space-y-5">
+                <p className="text-xs font-semibold uppercase tracking-widest text-blue-700 dark:text-blue-300">
+                  0{index + 1} / {project.category}
                 </p>
-                <p className="text-neutral-600 dark:text-blue-100/70">
-                  Hackathon 2nd Position
+                <div>
+                  <h3 className="text-3xl font-bold text-neutral-900 dark:text-white">
+                    {project.name}
+                  </h3>
+                  <p className="mt-2 text-sm font-medium text-blue-700 dark:text-blue-200">
+                    {project.subtitle}
+                  </p>
+                </div>
+                <p className="section-copy">{project.description}</p>
+                <ul className="space-y-3 text-sm leading-relaxed text-neutral-700 dark:text-neutral-200">
+                  {project.highlights.map((highlight) => (
+                    <li key={highlight} className="flex gap-3">
+                      <span
+                        aria-hidden="true"
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-500"
+                      />
+                      <span>{highlight}</span>
+                    </li>
+                  ))}
+                </ul>
+                <ul
+                  aria-label={project.name + " technologies"}
+                  className="flex flex-wrap gap-2"
+                >
+                  {project.technologies.map((tech) => (
+                    <li key={tech} className="tech-chip">
+                      {tech}
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="primary-button"
+                  aria-label={"View " + project.name + " source on GitHub"}
+                >
+                  Source Code <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+              <div className="min-w-0 space-y-5">
+                <figure>
+                  <a
+                    href={project.image}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block overflow-hidden rounded-2xl border border-blue-200/40 bg-blue-50/70 dark:border-blue-400/20"
+                    aria-label={"Enlarge " + project.name + " screenshot"}
+                  >
+                    <img
+                      src={project.image}
+                      alt={project.imageAlt}
+                      width="1200"
+                      height={index === 0 ? 1575 : 900}
+                      loading="lazy"
+                      decoding="async"
+                      className="aspect-[4/3] w-full object-cover object-top transition duration-300 hover:scale-[1.02]"
+                    />
+                  </a>
+                  <figcaption className="mt-3 text-xs leading-relaxed text-neutral-600 dark:text-neutral-300">
+                    {project.caption}
+                  </figcaption>
+                </figure>
+                <div className="rounded-2xl border border-blue-200/50 bg-blue-50/70 p-5 dark:border-blue-400/20 dark:bg-blue-500/5">
+                  <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-blue-700 dark:text-blue-200">
+                    Architecture
+                  </p>
+                  <ol className="flex flex-wrap items-center gap-2 text-xs leading-relaxed text-neutral-700 dark:text-neutral-200">
+                    {project.architecture.map((step, stepIndex) => (
+                      <li key={step}>
+                        {stepIndex > 0 && (
+                          <span
+                            aria-hidden="true"
+                            className="mr-2 text-blue-500"
+                          >
+                            →
+                          </span>
+                        )}
+                        {step}
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+                <p className="text-xs font-medium leading-relaxed text-blue-700 dark:text-blue-200">
+                  {project.status}
                 </p>
               </div>
             </div>
-          </div>
-        </div>
+          </article>
+        ))}
       </div>
     </section>
   );

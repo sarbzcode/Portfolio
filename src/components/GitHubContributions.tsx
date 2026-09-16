@@ -1,8 +1,11 @@
+import { useState } from "react";
+
 const githubUsername = "sarbzcode";
 const githubProfileUrl = `https://github.com/${githubUsername}`;
 const contributionChartUrl = `https://ghchart.rshah.org/2563eb/${githubUsername}`;
 
 export default function GitHubContributions() {
+  const [chartUnavailable, setChartUnavailable] = useState(false);
   return (
     <section className="relative px-6 py-16 sm:px-8 lg:px-12">
       <div className="mx-auto max-w-5xl rounded-3xl border border-neutral-200/60 bg-white/85 p-8 text-neutral-800 shadow-xl shadow-blue-500/10 backdrop-blur dark:border-white/10 dark:bg-white/5 dark:text-neutral-200">
@@ -23,15 +26,40 @@ export default function GitHubContributions() {
         <p className="mt-4 text-sm text-neutral-600 dark:text-neutral-200/75">
           Public contribution activity from the last year.
         </p>
-        <div className="mt-6 overflow-x-auto rounded-2xl border border-neutral-200/70 bg-[#0d1117] p-4 shadow-sm shadow-blue-500/5 dark:border-white/10">
-          <img
-            src={contributionChartUrl}
-            alt={`${githubUsername} GitHub contribution graph`}
-            loading="lazy"
-            referrerPolicy="no-referrer"
-            className="min-w-[760px] w-full"
-          />
-        </div>
+        {chartUnavailable ? (
+          <p
+            role="status"
+            className="mt-6 text-sm text-neutral-600 dark:text-neutral-300"
+          >
+            The contribution chart is currently unavailable.{" "}
+            <a
+              href={githubProfileUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-700 dark:text-blue-200"
+            >
+              View activity on GitHub.
+            </a>
+          </p>
+        ) : (
+          <div
+            tabIndex={0}
+            role="region"
+            aria-label="Scrollable GitHub contribution graph"
+            className="mt-6 overflow-x-auto rounded-2xl border border-neutral-200/70 bg-white p-4 text-neutral-700 shadow-sm shadow-blue-500/5 dark:border-white/10"
+          >
+            <img
+              src={contributionChartUrl}
+              alt={`${githubUsername} GitHub contribution graph`}
+              loading="lazy"
+              referrerPolicy="no-referrer"
+              onError={() => setChartUnavailable(true)}
+              width="1000"
+              height="160"
+              className="min-w-[760px] w-full"
+            />
+          </div>
+        )}
       </div>
     </section>
   );

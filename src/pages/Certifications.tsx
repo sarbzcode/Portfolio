@@ -12,6 +12,7 @@ const Certifications = () => (
           </h1>
         </div>
       </section>
+      <h2 className="sr-only">Professional certificates</h2>
       <Certification />
       <div className="flex flex-wrap items-center justify-center gap-3">
         <Link

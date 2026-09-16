@@ -1,4 +1,4 @@
-﻿import { FaLinkedin, FaGithub } from "react-icons/fa";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 import SendMail from "../components/SendMail.tsx";
 
 const socialLinks = {
@@ -46,7 +46,7 @@ export default function Contact() {
               className="rounded-3xl border border-neutral-200/60 bg-white/80 p-6 shadow-xl shadow-blue-500/10 backdrop-blur dark:border-white/10 dark:bg-white/5"
             >
               <div className="flex flex-col gap-4">
-                <div className="flex items-center gap-3">
+                <div className="flex flex-wrap items-center gap-3">
                   <span>{method.icon}</span>
                   <h2 className="text-lg font-semibold text-blue-700 dark:text-blue-200">
                     {method.title}
@@ -56,7 +56,7 @@ export default function Contact() {
                     {method.description}
                   </p>
                 </div>
-                <div className="mt-auto flex items-center justify-between text-xs uppercase tracking-wide text-neutral-500 dark:text-neutral-300">
+                <div className="mt-auto flex flex-wrap items-center justify-between gap-3 text-xs uppercase tracking-wide text-neutral-500 dark:text-neutral-300">
                   <span>{method.meta}</span>
                   <a
                     href={method.href}
@@ -68,7 +68,7 @@ export default function Contact() {
                         ? "noopener noreferrer"
                         : undefined
                     }
-                    className="inline-flex items-center justify-center rounded-full bg-white-600 px-6 py-2.5 text-sm font-semibold text-grey shadow-lg shadow-blue-600/30 transition hover:black-600 hover:bg-black-500"
+                    className="secondary-button"
                   >
                     {method.actionLabel}
                   </a>

@@ -1,75 +1,85 @@
----
-# Sarb's Portfolio  
-Data analytics-focused full-stack portfolio for Sarbjot Singh (sarbzcode).
+# SarbzCode Portfolio
 
-## 🌐 Live Demo
-[www.sarbzcode.com](https://www.sarbzcode.com)
+Personal portfolio for Sarbjot Singh: data engineering, software development, data analytics and machine learning.
 
-## 🧠 Overview
-Built as a single-page React application, this portfolio highlights Sarbjot Singh's analytics-driven engineering work. It combines content-rich sections for projects, certifications, and education with a responsive, theme-aware design.
-- Hero section introduces Sarbjot's background, skill badges, and social links.
-- Animated contact form feeds into a serverless email endpoint backed by Nodemailer.
-- Featured project stories and case studies outline real-world impact with reusable UI patterns.
-- Glyph-based canvas background and dark/light theme toggle maintain a polished, immersive experience.
+[Live website](https://sarbzcode.com) · [GitHub](https://github.com/sarbzcode) · [LinkedIn](https://www.linkedin.com/in/sarbzcode/)
 
-## ⚙️ Tech Stack
-- Frontend: React 19, TypeScript, React Router, Tailwind CSS, PostCSS, custom CSS utilities, Heroicons, React Icons.
-- Interaction & Media: Lottie animations, bespoke canvas glyph background, dependencies in place for @react-three/fiber, @react-three/drei, and Three.js experiments.
-- Tooling: Vite (rolldown-vite), ESLint + TypeScript ESLint, Autoprefixer, Tailwind CLI.
-- Backend & Deployment: Vercel serverless functions, Node 18+, Nodemailer, dotenv, cors, Express (planned usage), `vercel.json` routing.
+## Stack and structure
 
-## 📂 Project Structure
-```
-.
-|-- src/
-|   |-- components/         # Navbar, Footer, GlyphBackground, SendMail, featured cards
-|   |-- pages/              # Home, About, Projects, Contact, Certifications views
-|   |-- assets/             # Lottie animation data and media
-|   |-- css/                # Theme helper styles
-|   |-- App.tsx             # Route definitions and layout shell
-|   \-- main.tsx            # React entry point with BrowserRouter
-|-- api/
-|   \-- contact.ts          # Serverless email handler (POST /api/contact)
-|-- public/                 # Static assets (profile, icons, meta)
-|-- index.html              # Root HTML document and title
-|-- vite.config.ts          # Vite plugins and dev proxy configuration
-|-- tailwind.config.js      # Tailwind setup with dark mode
-\-- vercel.json             # Deployment configuration for Vercel (static + API)
-```
+React 19, TypeScript, React Router, Vite and Tailwind CSS. The original blue palette, light/dark themes, system typography, translucent rounded cards and animated canvas glyph background are retained. Reduced-motion preferences disable the glyph and contact animations.
 
-## 🚀 Setup & Installation
-Step-by-step guide:
-```bash
-git clone https://github.com/sarbzcode/Portfolio.git
-cd Portfolio
-npm install
+- `src/pages/Home.tsx`: text-focused hero, featured projects, research, skills, hackathon achievement, education/certifications, contributions and contact.
+- `src/data/portfolio.ts`: typed featured-project data, skills, certifications and social links.
+- `src/components/FeaturedProject.tsx`: shared flagship project cards on Home and Projects.
+- `src/components/ProfileSections.tsx`: shared research, skills and education sections.
+- `src/components/HackathonProject.tsx`: ResumeGPT's second-place hackathon achievement.
+- `src/pages/Projects.tsx`: flagship projects followed by ResumeGPT and additional builds.
+- `src/pages/About.tsx`, `Contact.tsx`, `Certifications.tsx`: existing routes remain available.
+- `src/components/GitHubContributions.tsx`: external contribution chart for sarbzcode, with a profile-link fallback if unavailable.
+- `src/components/SendMail.tsx` and `api/contact.ts`: existing serverless contact flow.
+- `src/index.css`: Tailwind utilities and shared styles derived from the original cards/buttons.
+- `public/projects/`: local project visuals, including optimized authentic WebP screenshots.
+- `index.html`: title, description, canonical, Open Graph and Twitter metadata.
+- `vercel.json`: existing static build and API routing.
+
+No resume PDF or configured resume URL was present during the refresh, so the hero does not render a resume button.
+
+## Development and checks
+
+Use the Node version declared in `package.json` (20.x).
+
+```sh
+npm ci
 npm run dev
+node node_modules/eslint/bin/eslint.js .
+node node_modules/typescript/bin/tsc -b --pretty false
+npm run build
+npm run preview
 ```
-The Vite dev server runs on `http://localhost:5173`. For the contact form, run a compatible `/api/contact` handler (for example `vercel dev`) with the environment variables below before testing submissions. Additional scripts: `npm run build` creates the production bundle, `npm run preview` serves the build locally, and `npm run lint` checks formatting and best practices.
 
-## 🔑 Environment Variables
-Define these in a `.env` file or your Vercel project settings before deploying the contact endpoint:
-- `EMAIL_USER` (required): SMTP username or email address sending messages.
-- `EMAIL_PASS` (required): SMTP password or app-specific token.
-- `EMAIL_HOST` (optional, default `smtp.gmail.com`): SMTP host.
-- `EMAIL_PORT` (optional, default `587`): SMTP port number.
-- `EMAIL_SECURE` (optional): Set to `true` if SSL/TLS is required.
-- `EMAIL_RECEIVER` (optional): Override destination inbox; defaults to `EMAIL_USER`.
+On Windows with restricted PowerShell scripts, use `npm.cmd`. The repository does not define npm lint, typecheck or test scripts; ESLint and TypeScript are invoked directly. No dependencies were added for the refresh.
 
-## 🧭 Pages & Key Components
-- `src/pages/Home.tsx`: Hero profile, skills badges, certifications preview, featured project call-to-action, and embedded contact form.
-- `src/pages/About.tsx`: Timeline of initiatives, education highlights, and categorized tech stack badges.
-- `src/pages/Projects.tsx`: Case studies for Axepress and ShiftSync with problem, solution, impact, and stack callouts.
-- `src/pages/Contact.tsx`: Social contact cards plus the SendMail form.
-- `src/pages/Certifications.tsx`: Detailed certification showcase via reusable `Certification` component.
-- `src/components/GlyphBackground.tsx`: Canvas-based animated glyph backdrop reacting to theme and pointer movement.
-- `src/components/SendMail.tsx`: Validated contact form with async status handling and error messaging.
+Vite serves the frontend at localhost:5173 and proxies /api to localhost:5000. Testing real email delivery requires a compatible API runtime such as Vercel's development runtime and configured SMTP credentials.
 
-## 🚢 Deployment
-- `vercel.json` configures a static build output from `npm run build` and mounts serverless functions in `api/`.
-- `api/contact.ts` uses Nodemailer within Vercel's Node runtime to send messages; production secrets are managed through Vercel environment variables.
-- The Vite dev proxy forwards `/api` requests to `http://localhost:5000`, which can be satisfied by `vercel dev` or a local Express adapter during development.
+## Contact configuration
 
-## 👤 Author
-- Sarbjot Singh — computer science (data analytics) student and full-stack developer.
-- GitHub: [@sarbzcode](https://github.com/sarbzcode) · LinkedIn: [linkedin.com/in/sarbzcode](https://www.linkedin.com/in/sarbzcode/) · Portfolio: [www.sarbzcode.com](https://www.sarbzcode.com)
+Keep these values in the deployment environment, never in committed files:
+
+- `EMAIL_USER`, `EMAIL_PASS`: required SMTP credentials.
+- `EMAIL_HOST`: defaults to smtp.gmail.com.
+- `EMAIL_PORT`: defaults to 587.
+- `EMAIL_SECURE`: true to use SSL/TLS.
+- `EMAIL_RECEIVER`: optional destination; defaults to EMAIL_USER.
+
+The public contact address is sarbzcode@gmail.com. Client success requires an explicit successful API response; failed messages remain editable.
+
+## Content and screenshot provenance
+
+Project source was inspected on September 16, 2026:
+
+- [CanadaPulse](https://github.com/sarbzcode/CanadaPulse/tree/274062b064a691a52bce31ab07b15fb9dc69f540): README, architecture/data model/deployment documentation, ingestion code, SQL models, Airflow DAG, frontend pages, tests and CI. The 16 dbt SQL models and four instantiated DAG tasks were verified in source. Its screenshot is `docs/screenshots/overview.png`, resized to 1200 × 1575 and encoded as WebP (71 KB). It is an actual local warehouse capture, not current live data.
+- [ValleyCabs](https://github.com/sarbzcode/ValleyCabs/tree/7d7d29d692d9d87a37e8b06e244a49d0f62d7f75): README, architecture/deployment notes, booking/payment/tracking/notification services, shared TypeScript package, web/mobile structure, browser tests and CI. Its screenshot is `docs/screenshots/admin-overview.png`, resized to 1200 × 900 and encoded as WebP (34 KB). The interface uses fictional intercepted documentation fixtures.
+
+CanadaPulse remains a scheduled/batch platform with public hosting pending. ValleyCabs remains an active portfolio MVP with provider-backed acceptance, native-device verification and deployment pending. Neither card has an unverified live-demo link.
+
+The CanadaPulse verification ledger records 67 dbt tests, 26 Python tests and a historical Spark run of 13,860 observations into 1,188 annual groups. Those executions were not rerun for this portfolio update, and these totals are not published on the cards. ValleyCabs GPS/payment/API/notification timing figures and production usage claims are also omitted.
+
+Education, certifications and research metrics come from the supplied resume brief. The visible research summary uses three bullets; it does not imply a clinically deployed product.
+
+## Refresh verification
+
+- Production build, repository ESLint and TypeScript project checks.
+- Chromium responsive checks at 375, 430, 768, 1024 and 1440 pixels in both themes.
+- Local image loading, horizontal overflow, heading structure and browser exceptions.
+- Keyboard skip link, mobile menu/Escape, section links and cross-route navigation.
+- Contact validation and intercepted success/error responses; no real email sent.
+- Automated WCAG A/AA checks using axe.
+- Public GitHub links (including the remote branch's ShyftSync rename), existing ChessArena demo and contribution endpoint checked. LinkedIn returns HTTP 999 to automated clients; the original profile URL is preserved.
+
+The existing build reports Lottie eval/chunk-size and stale browser-data warnings. These do not prevent a successful build; dependencies were not upgraded.
+
+## Deployment
+
+The existing Vercel configuration runs `scripts/run-vite-build.cjs` and serves `dist`, with `/api/*` routed to serverless functions. A connected Vercel Git deployment can rebuild after the main-branch push. SMTP settings remain required for actual email delivery.
+
+The repository already tracked dependency and build files before this refresh. New ignore rules prevent additional untracked dependencies, builds, environment files and test artifacts from being staged; they do not untrack historical files.

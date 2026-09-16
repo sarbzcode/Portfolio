@@ -3,6 +3,14 @@ import { useEffect, useRef, useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { MoonIcon, SunIcon } from "@heroicons/react/24/solid";
 
+const navigation = [
+  { label: "Home", to: "/" },
+  { label: "Projects", to: "/#projects" },
+  { label: "Experience", to: "/#experience" },
+  { label: "Skills", to: "/#skills" },
+  { label: "Contact", to: "/#contact" },
+];
+
 const DARK_THEME_BACKGROUND = "#050608";
 const LIGHT_THEME_BACKGROUND = "#f4f6fb";
 const THEME_STORAGE_KEY = "theme";
@@ -21,6 +29,7 @@ export default function Navbar() {
   const [isHidden, setIsHidden] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
   const lastScrollY = useRef(0);
   const location = useLocation();
 
@@ -94,7 +103,7 @@ export default function Navbar() {
 
   useEffect(() => {
     setIsMenuOpen(false);
-  }, [location.pathname]);
+  }, [location.pathname, location.hash]);
 
   useEffect(() => {
     if (typeof window === "undefined") {
@@ -102,7 +111,7 @@ export default function Navbar() {
     }
 
     const handleResize = () => {
-      if (window.innerWidth >= 640) {
+      if (window.innerWidth >= 768) {
         setIsMenuOpen(false);
       }
     };
@@ -114,21 +123,32 @@ export default function Navbar() {
     };
   }, []);
 
-  const navLinkClass = "transition hover:text-blue-600 dark:hover:text-blue-400";
+  const navLinkClass =
+    "text-blue-700 dark:text-blue-300 transition hover:text-blue-600 dark:hover:text-blue-400";
 
   const navClassName = `fixed top-1 left-1/2 -translate-x-1/2
-    w-[80%] sm:w-[70%] lg:w-[60%] xl:w-1/2
+    w-[calc(100%-2rem)] md:w-[90%] lg:w-[80%]
     max-w-5xl
     z-50 px-3 py-1
     rounded-full border border-white/10
     bg-white/70 dark:bg-black/60
     backdrop-blur-xl shadow-lg
     flex items-center justify-between ${
-      isHidden ? "-translate-y-full" : "translate-y-0"
+      isHidden && !isMenuOpen ? "-translate-y-full" : "translate-y-0"
     }`;
 
   return (
-    <nav className={navClassName}>
+    <nav
+      aria-label="Main navigation"
+      className={navClassName}
+      onFocus={() => setIsHidden(false)}
+      onKeyDown={(event) => {
+        if (event.key === "Escape") {
+          setIsMenuOpen(false);
+          menuButtonRef.current?.focus();
+        }
+      }}
+    >
       <div className="relative mx-auto flex w-full max-w-5xl items-center gap-1 px-3 py-2 sm:px-8">
         <Link
           to="/"
@@ -139,39 +159,14 @@ export default function Navbar() {
         </Link>
 
         <div className="ml-auto flex items-center gap-2 sm:gap-5">
-          <ul className="hidden items-center gap-x-5 text-sm font-semibold sm:flex sm:text-xl">
-            <li>
-              <Link
-                to="/"
-                className={navLinkClass}
-              >
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/about"
-                className={navLinkClass}
-              >
-                About
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/projects"
-                className={navLinkClass}
-              >
-                Projects
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/contact"
-                className={navLinkClass}
-              >
-                Contact
-              </Link>
-            </li>
+          <ul className="hidden items-center gap-x-5 text-sm font-semibold md:flex">
+            {navigation.map((item) => (
+              <li key={item.label}>
+                <Link to={item.to} className={navLinkClass}>
+                  {item.label}
+                </Link>
+              </li>
+            ))}
           </ul>
 
           <button
@@ -190,9 +185,14 @@ export default function Navbar() {
 
           <button
             type="button"
-            aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            ref={menuButtonRef}
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-navigation"
+            aria-label={
+              isMenuOpen ? "Close navigation menu" : "Open navigation menu"
+            }
             onClick={() => setIsMenuOpen((prev) => !prev)}
-            className="inline-flex items-center justify-center rounded-full bg-gray-200 p-2 text-slate-600 transition hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-white/10 dark:text-white dark:hover:bg-white/20 sm:hidden"
+            className="inline-flex items-center justify-center rounded-full bg-gray-200 p-2 text-slate-600 transition hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-white/10 dark:text-white dark:hover:bg-white/20 md:hidden"
           >
             {isMenuOpen ? (
               <XMarkIcon className="h-5 w-5" />
@@ -204,43 +204,21 @@ export default function Navbar() {
 
         {isMenuOpen ? (
           <div className="absolute left-3 right-3 top-full mt-2 overflow-hidden rounded-2xl border border-white/10 bg-white/90 shadow-lg backdrop-blur-lg dark:border-white/10 dark:bg-black/80">
-            <ul className="flex flex-col divide-y divide-slate-200/60 text-base font-semibold text-slate-700 dark:divide-white/10 dark:text-slate-100">
-              <li>
-                <Link
-                  to="/"
-                  onClick={() => setIsMenuOpen(false)}
-                  className={`${navLinkClass} block px-4 py-3`}
-                >
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/about"
-                  onClick={() => setIsMenuOpen(false)}
-                  className={`${navLinkClass} block px-4 py-3`}
-                >
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/projects"
-                  onClick={() => setIsMenuOpen(false)}
-                  className={`${navLinkClass} block px-4 py-3`}
-                >
-                  Projects
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/contact"
-                  onClick={() => setIsMenuOpen(false)}
-                  className={`${navLinkClass} block px-4 py-3`}
-                >
-                  Contact
-                </Link>
-              </li>
+            <ul
+              id="mobile-navigation"
+              className="flex flex-col divide-y divide-slate-200/60 text-base font-semibold text-slate-700 dark:divide-white/10 dark:text-slate-100"
+            >
+              {navigation.map((item) => (
+                <li key={item.label}>
+                  <Link
+                    to={item.to}
+                    onClick={() => setIsMenuOpen(false)}
+                    className={navLinkClass + " block px-4 py-3"}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         ) : null}

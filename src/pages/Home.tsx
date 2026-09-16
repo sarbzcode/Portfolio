@@ -1,51 +1,41 @@
-import FeaturedProject from "../components/FeaturedProject.tsx";
-import GitHubContributions from "../components/GitHubContributions.tsx";
-import SendMail from "../components/SendMail.tsx";
+import { Link } from "react-router-dom";
+import FeaturedProject from "../components/FeaturedProject";
+import GitHubContributions from "../components/GitHubContributions";
+import SendMail from "../components/SendMail";
+import HackathonProject from "../components/HackathonProject";
+import { Education, Experience, Skills } from "../components/ProfileSections";
+import { socialLinks } from "../data/portfolio";
 
-const socialLinks = {
-  email: "mailto:sarbzcode@gmail.com",
-  github: "https://github.com/sarbzcode",
-  linkedin: "https://www.linkedin.com/in/sarbzcode/",
-};
-
-const profile = "/profile.jpg";
-
-const HomePage = () => (
-  <>
-    <div className="relative z-10 flex flex-col bg-transparent text-neutral-900 dark:text-neutral-100">
-      <section className="max-w-5xl mx-auto flex min-h-[60vh] flex-col justify-center overflow-hidden px-6 py-24 sm:px-8 lg:px-12">
-        <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center gap-12 lg:flex-row lg:items-center lg:justify-between">
-          <div className="flex-1 space-y-6 text-center lg:text-left">
-            <p className="text-sm uppercase tracking-[0.4em] text-blue-600 dark:text-blue-300">
-              Portfolio
+export default function Home() {
+  return (
+    <div className="relative z-10 text-neutral-900 dark:text-neutral-100">
+      <section id="home" className="px-6 pb-12 pt-24 sm:px-8 sm:pt-28 lg:px-12">
+        <div className="portfolio-container">
+          <div className="max-w-3xl space-y-6">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-700 dark:text-blue-300">
+              Data · Software · Research
             </p>
             <h1 className="text-4xl font-bold text-neutral-900 dark:text-white sm:text-5xl lg:text-6xl">
               Sarbjot Singh
             </h1>
-            <p className="text-lg text-neutral-700 dark:text-blue-100 sm:text-xl">
-              Aspiring Software Developer | Data Analytics Enthusiast |
-              Full-Stack Engineer
+            <p className="text-xl font-medium leading-relaxed text-blue-700 dark:text-blue-100 sm:text-2xl">
+              Data Engineer · Software Developer · Data Analytics
             </p>
-            <p className="mx-auto max-w-2xl text-base text-neutral-700/80 dark:text-neutral-200/80 sm:text-lg lg:mx-0">
-              I'm a Bachelor of Computer Science (Data Analytics with Co-op)
-              student at Acadia University, Passionate about building impactful
-              products that blend data-driven insights with intuitive user
-              experiences.
+            <p className="max-w-2xl text-base leading-relaxed text-neutral-700 dark:text-neutral-200 sm:text-lg">
+              Bachelor of Applied Computer Science student at Acadia University
+              specializing in Data Analytics and Co-op. I build data platforms,
+              machine-learning systems, APIs and full-stack applications that
+              turn complex problems into reliable, usable products.
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-3 pt-2 lg:justify-start">
-              <a
-                href={socialLinks.email}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-full bg-blue-600 px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-blue-600/20 transition hover:-translate-y-0.5 hover:bg-blue-500 hover:text-white"
-              >
-                Email
+            <div className="flex flex-wrap items-center gap-3 pt-2">
+              <a href="#projects" className="primary-button">
+                View Projects <span aria-hidden="true">↓</span>
               </a>
               <a
                 href={socialLinks.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full border border-neutral-300 px-5 py-2 text-sm font-semibold text-neutral-700 transition hover:-translate-y-0.5 hover:border-blue-400 hover:text-blue-500 dark:border-white/20 dark:text-white dark:hover:text-blue-200"
+                className="secondary-button"
               >
                 GitHub
               </a>
@@ -53,29 +43,46 @@ const HomePage = () => (
                 href={socialLinks.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full border border-neutral-300 px-5 py-2 text-sm font-semibold text-neutral-700 transition hover:-translate-y-0.5 hover:border-blue-400 hover:text-blue-500 dark:border-white/20 dark:text-white dark:hover:text-blue-200"
+                className="secondary-button"
               >
                 LinkedIn
               </a>
             </div>
-          </div>
-          <div className="relative flex-1">
-            <div className="profile-ring relative h-64 w-64 sm:-top-5 sm:h-72 sm:w-72 lg:-top-2 lg:h-80 lg:w-80">
-              <img
-                src={profile}
-                alt="Sarbjot Singh portrait"
-                loading="lazy"
-                className="profile-ring__image h-full w-full rounded-full object-cover shadow-2xl animate-glow"
-              />
-            </div>
+            <ul
+              aria-label="Core technologies"
+              className="flex flex-wrap gap-2 pt-2"
+            >
+              {[
+                "Python",
+                "SQL",
+                "TypeScript",
+                "FastAPI",
+                "PostgreSQL",
+                "dbt",
+              ].map((tech) => (
+                <li key={tech} className="tech-chip">
+                  {tech}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
       <FeaturedProject />
+      <Experience />
+      <Skills />
+      <HackathonProject />
+      <div className="portfolio-container px-6 text-right sm:px-0">
+        <Link
+          to="/projects"
+          className="text-sm font-semibold text-blue-700 dark:text-blue-200"
+        >
+          Explore more projects &rarr;
+        </Link>
+      </div>
+      <Education />
       <GitHubContributions />
       <SendMail />
     </div>
-  </>
-);
-
-export default HomePage;
+  );
+}
