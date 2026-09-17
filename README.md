@@ -22,7 +22,7 @@ React 19, TypeScript, React Router, Vite and Tailwind CSS. The original blue pal
 - `index.html`: title, description, canonical, Open Graph and Twitter metadata.
 - `vercel.json`: existing static build and API routing.
 
-No resume PDF or configured resume URL was present during the refresh, so the hero does not render a resume button.
+The hero's View Resume button opens `public/Resume_Sarbjot_Singh.pdf` in a new tab. Replace that file to update the resume while keeping the existing link.
 
 ## Development and checks
 

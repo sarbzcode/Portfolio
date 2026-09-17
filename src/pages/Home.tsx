@@ -32,6 +32,14 @@ export default function Home() {
                 View Projects <span aria-hidden="true">↓</span>
               </a>
               <a
+                href="/Resume_Sarbjot_Singh.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="secondary-button"
+              >
+                View Resume
+              </a>
+              <a
                 href={socialLinks.github}
                 target="_blank"
                 rel="noopener noreferrer"
